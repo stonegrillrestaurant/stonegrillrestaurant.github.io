@@ -1,27 +1,22 @@
-<!-- pages/menu.html -->
-[...unchanged menu code...]
-
-<!-- pages/about.html -->
-[...unchanged about code...]
-
-<!-- pages/contact.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact Us - Stone Grill</title>
+  <title>Menu - Stone Grill Restaurant</title>
   <style>
     body { font-family: 'Segoe UI', sans-serif; margin: 0; background: #fff8f0; color: #333; }
     header, footer { background: #b22222; color: white; padding: 1rem; text-align: center; }
     nav { background-color: #ffcc00; padding: 0.5rem; text-align: center; }
     nav a { margin: 0 1rem; color: #b22222; font-weight: bold; text-decoration: none; }
     nav a:hover { text-decoration: underline; }
-    .container { padding: 2rem; max-width: 700px; margin: auto; text-align: center; }
-    .contact-info p { margin: 1rem 0; font-size: 1.1rem; }
-    .social a { color: #b22222; font-weight: bold; text-decoration: none; }
-    .social a:hover { text-decoration: underline; }
-    iframe { width: 100%; height: 350px; border: 0; border-radius: 10px; margin-top: 1rem; }
+    .container { padding: 2rem; max-width: 1000px; margin: auto; }
+    .menu-section { margin-bottom: 3rem; }
+    .menu-section h2 { color: #b22222; margin-bottom: 1rem; border-bottom: 2px solid #ffcc00; padding-bottom: 0.5rem; }
+    .menu-item { margin-bottom: 1.5rem; display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; }
+    .menu-item img { width: 200px; border-radius: 10px; }
+    .menu-item-details { flex: 1; min-width: 200px; }
+    .menu-item-details h3 { margin: 0 0 0.5rem; color: #b22222; }
   </style>
 </head>
 <body>
@@ -29,22 +24,53 @@
     <h1>Stone Grill Restaurant</h1>
   </header>
   <nav>
-    <a href="index.html">Home</a>
+    <a href="../index.html">Home</a>
     <a href="menu.html">Menu</a>
     <a href="about.html">About</a>
     <a href="contact.html">Contact</a>
   </nav>
   <div class="container">
-    <h1>Contact Us</h1>
-    <div class="contact-info">
-      <p>📍 <strong>Address:</strong> Brgy. Tinago Bato, Leyte</p>
-      <p>📞 <strong>Phone:</strong> <a href="tel:+63535680539">+63 53 568 0539</a></p>
-      <p>📧 <strong>Email:</strong> stonegrill2014@gmail.com</p>
-      <p class="social">💬 <strong>Facebook:</strong> <a href="https://m.me/stonecitygrill">Message us on Facebook</a></p>
+    <h1>Our Menu</h1>
+
+    <div class="menu-section">
+      <h2>Signature Dishes</h2>
+      <div class="menu-item">
+        <img src="../images/calamari.jpg" alt="Calamari">
+        <div class="menu-item-details">
+          <h3>Calamari</h3>
+          <p>Crispy, golden-fried squid rings served with our special dipping sauce.</p>
+        </div>
+      </div>
+      <div class="menu-item">
+        <img src="../images/crispy-pata.jpg" alt="Crispy Pata">
+        <div class="menu-item-details">
+          <h3>Crispy Pata</h3>
+          <p>Deep-fried pork knuckle, crispy on the outside and tender on the inside. Served with soy-vinegar dip.</p>
+        </div>
+      </div>
     </div>
 
-    <h2>Find Us on the Map</h2>
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3925.2522002840583!2d124.79030379999999!3d10.321690499999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33076bc3d4b47087%3A0xa00e85f13f92744a!2sStone%20Grill%20Restaurant!5e0!3m2!1sen!2sph!4v1747403416967!5m2!1sen!2sph" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <div class="menu-section">
+      <h2>Noodle Specials</h2>
+      <div class="menu-item">
+        <img src="../images/pancit-canton.jpg" alt="Pancit Canton">
+        <div class="menu-item-details">
+          <h3>Pancit Canton</h3>
+          <p>Classic Filipino stir-fried noodles with vegetables, meat, and seafood. A must-try!</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-section">
+      <h2>Seafood Platters</h2>
+      <div class="menu-item">
+        <img src="../images/seafood-platter.jpg" alt="Seafood Platter">
+        <div class="menu-item-details">
+          <h3>Mixed Seafood Platter</h3>
+          <p>A generous plate of grilled shrimp, squid, fish, and mussels—perfect for sharing!</p>
+        </div>
+      </div>
+    </div>
   </div>
   <footer>
     &copy; 2025 Stone Grill Restaurant
