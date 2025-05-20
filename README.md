@@ -1,81 +1,13 @@
 # stonegrillrestaurant.github.io
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Menu - Stone Grill Restaurant</title>
-  <style>
-    body { font-family: 'Segoe UI', sans-serif; margin: -39; background: #fff8f0; color: #333; }
-    header, footer { background: #b22222; color: white; padding: 1rem; text-align: center; }
-    nav { background-color: #ffcc00; padding: 0.4rem; text-align: center; }
-    nav a { margin: 0 1rem; color: #b22222; font-weight: bold; text-decoration: none; }
-    nav a:hover { text-decoration: underline; }
-    .container { padding: -25rem; max-width: 450px; margin: auto; }
-    .menu-section { margin-bottom: 2rem; }
-    .menu-section h2 { color: #b22222; margin-bottom: 2rem; border-bottom: 2px solid #ffcc00; padding-bottom: 1rem; }
-    .menu-item { margin-bottom: 1.5rem; display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; }
-    .menu-item img { width: 200px; border-radius: 0px; }
-    .menu-item-details { flex: 4; min-width: 53px; }
-    .menu-item-details h3 { margin: 0 0 1rem; color: #b22222; }
-  </style>
-</head>
-<body>
-  <header>
-    <h1>Stone Grill Restaurant</h1>
-  </header>
-  <nav>
-    <a href="https://stonegrillrestaurant.github.io">Home</a>
-    <a href="menu.html">Menu</a>
-    <a href="about.html">About</a>
-    <a href="contact.html">Contact</a>
-  </nav>
-  <div class="container">
-    <h1>Our Menu</h1>
 
-    <div class="menu-section">
-      <h2>Signature Dishes</h2>
-      <div class="menu-item">
+<!-- Facebook Share Button -->
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" 
+        src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v19.0" 
+        nonce="yourNonceHere"></script>
 
-        <img src="../pages/images/calamari.jpg" alt="Calamari">
-        <div class="menu-item-details">
-          <h3>Calamari</h3>
-          <p>Crispy, golden-fried squid rings served with our special dipping sauce.</p>
-        </div>
-      </div>
-      <div class="menu-item">
-        <img src="../images/crispy-pata.jpg" alt="Crispy Pata">
-        <div class="menu-item-details">
-          <h3>Crispy Pata</h3>
-          <p>Deep-fried pork knuckle, crispy on the outside and tender on the inside. Served with soy-vinegar dip.</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="menu-section">
-      <h2>Noodle Specials</h2>
-      <div class="menu-item">
-        <img src="../images/pancit-canton.jpg" alt="Pancit Canton">
-        <div class="menu-item-details">
-          <h3>Pancit Canton</h3>
-          <p>Classic Filipino stir-fried noodles with vegetables, meat, and seafood. A must-try!</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="menu-section">
-      <h2>Seafood Platters</h2>
-      <div class="menu-item">
-        <img src="../images/seafood-platter.jpg" alt="Seafood Platter">
-        <div class="menu-item-details">
-          <h3>Mixed Seafood Platter</h3>
-          <p>A generous plate of grilled shrimp, squid, fish, and mussels—perfect for sharing!</p>
-        </div>
-      </div>
-    </div>
-  </div>
-  <footer>
-    &copy; 2025 Stone Grill Restaurant
-  </footer>
-</body>
-</html>
+<div class="fb-share-button" 
+     data-href="https://yourusername.github.io/your-repo/" 
+     data-layout="button" 
+     data-size="large">
+</div>
