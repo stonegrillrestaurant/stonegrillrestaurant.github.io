@@ -1,183 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Stone Grill Restaurant</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us - Stone Grill</title>
   <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #fff8f0;
-      color: #333;
-    }
-    header {
-      background-color: #b22222;
-      color: #fff;
-      padding: 1rem;
-      text-align: center;
-}
-    nav {
-      background: #f2d00f;
-      padding: 10px;
-      text-align: center;
-    }
-    nav a {
-      color: #b22222;
-      margin: 0 15px;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    .hero {
-      background: url('your-hero-image.jpg') center/cover no-repeat;
-      height: 90px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      text-shadow: 1px 1px 5px black;
-    }
-    .hero h1 {
-      background-color: rgba(0,0,0,0.5);
-      padding: 1rem;
-      border-radius: 8px;
-    }
-    .content {
-      padding: 2rem;
-      max-width: 1000px;
-      margin: auto;
-    }
-    .featured {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-around;
-    }
-    .dish {
-      width: 45%;
-      margin: 1rem 0;
-    }
-    .dish img {
-      width: 100%;
-      border-radius: 10px;
-    }
-    .map-container, .reviews, .messenger {
-      margin: 2rem 0;
-      text-align: center;
-    }
-    .call-button {
-      display: inline-block;
-      background-color: #b22222;
-      color: white;
-      padding: 1rem 2rem;
-      margin-top: 1rem;
-      text-decoration: none;
-      font-size: 1.2rem;
-      border-radius: 5px;
-    }
-    .call-button:hover {
-      background-color: #8b1a1a;
-    }
-    footer {
-      background-color: #b22222;
-      color: white;
-      text-align: center;
-      padding: 1rem;
-    }
-    iframe {
-      width: 100%;
-      height: 200px;
-      border: none;
-    }
-    @media (max-width: 600px) {
-      .dish {
-        width: 100%;
-      }
-      nav {
-        flex-direction: column;
-      }
-    }
+    body { font-family: 'Segoe UI', sans-serif; margin: 0; background: #fff8f0; color: #333; }
+    header, footer { background: #b22222; color: white; padding: 1rem; text-align: center; }
+    nav { background-color: #ffcc00; padding: 0.5rem; text-align: center; }
+    nav a { margin: 0 1rem; color: #b22222; font-weight: bold; text-decoration: none; }
+    nav a:hover { text-decoration: underline; }
+    .container { padding: 2rem; max-width: 700px; margin: auto; text-align: center; }
+    .contact-info p { margin: 1rem 0; font-size: 1.1rem; }
+    .social a { color: #b22222; font-weight: bold; text-decoration: none; }
+    .social a:hover { text-decoration: underline; }
+    iframe { width: 100%; height: 350px; border: 0; border-radius: 10px; margin-top: 1rem; }
   </style>
 </head>
 <body>
-
   <header>
     <h1>Stone Grill Restaurant</h1>
-    <p>Enjoyable and Relaxing</p>
   </header>
-
   <nav>
-    <a href="https://stonegrillrestaurant.github.io/index.html">Home</a>
+    <a href="index.html">Home</a>
     <a href="menu.html">Menu</a>
     <a href="about.html">About</a>
     <a href="contact.html">Contact</a>
   </nav>
-
-  <div class="content">
-    <h2>Features</h2>
-    <p>
-      At Stone Grill, we believe in making every meal memorable. Our signature cooking style allows you to grill your food right at your table fresh, hot, and just the way you like it. Located in Bato Leyte, we're proud to serve you with love and flavor.
-    </p>
-
-    <div class="featured">
-      <div class="dish">
-        <img src="/pages/images/calamari.jpg" alt="Calamari">
-        <h3>Calamari</h3>
-        <p>Our crispy, golden calamari is a crowd favorite—perfectly seasoned and served with house sauce.</p>
-      </div>
-      <div class="dish">
-        <img src="/pages/images/sgrq.jpg" alt="Crispy Pata">
-        <h3>Our Place</h3>
-        <p>Fall-off-the-bone pork knuckle, deep-fried to a crunchy finish. Best paired with rice and beer!</p>
-      </div>
+  <div class="container">
+    <h1>Contact Us</h1>
+    <div class="contact-info">
+      <p>📍 <strong>Address:</strong> Brgy. Tinago Bato, Leyte</p>
+      <p>📞 <strong>Phone:</strong> <a href="tel:+63535680539">+63 53 568 0539</a></p>
+      <p>📧 <strong>Email:</strong> stonegrill2014@gmail.com</p>
+      <p class="social">💬 <strong>Facebook:</strong> <a href="https://m.me/stonecitygrill">Message us on Facebook</a></p>
     </div>
 
-    <div class="map-container">
-      <h2>Directions</h2>
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31402.014408178136!2d124.79049200000001!3d10.3217225!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33076bc3d4b47087%3A0xa00e85f13f92744a!2sStone%20Grill%20Restaurant!5e0!3m2!1sen!2sph!4v1747746808421!5m2!1sen!2sph" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-    </div>
-
-    <div class="messenger">
-      <h2>Need Help? Chat with Us</h2>
-      <div id="fb-root"></div>
-      <div class="https://m.me/stonecitygrill"
-           attribution="install_email"
-           page_id="349741858566089"
-           theme_color="#b22222"
-           logged_in_greeting="Hi! How can we help you?"
-           logged_out_greeting="Hi! How can we help you?">
-      </div>
-    </div>
-
-    <div class="reviews">
-      <h2>Customer Reviews</h2>
-      <p>“Best grill experience – Jenny R.</p>
-      <p>“Loved the pancit canton and the ambience!” – Carlo D.</p>
-    </div>
-
-    <div class="contact">
-      <h2>Advance Orders</h2>
-      <a class="call-button" href="tel:+63535680539">Call Us Now</a>
-    </div>
+    <h2>Find Us on the Map</h2>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3925.2522002840583!2d124.79030379999999!3d10.321690499999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33076bc3d4b47087%3A0xa00e85f13f92744a!2sStone%20Grill%20Restaurant!5e0!3m2!1sen!2sph!4v1747403416967!5m2!1sen!2sph" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
   </div>
-
-<div id="fb-root"></div>
-<script async defer crossorigin="anonymous" 
-        src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v19.0" 
-        nonce="yourNonceHere"></script>
-
-<div class="fb-share-button" 
-     data-href="https://stonegrillrestaurant.github.io/pages/about.html" 
-     data-layout="button" 
-     data-size="large">
-</div>
   <footer>
-    &copy; 2025 Stone Grill Restaurant | All Rights Reserved | 
-    <a style="color: white;" href="https://facebook.com/stonecitygrill">Facebook</a>
+    &copy; 2025 Stone Grill Restaurant
   </footer>
-
-  <script async defer crossorigin="anonymous" 
-          src="https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js">
-  </script>
-
 </body>
 </html>
