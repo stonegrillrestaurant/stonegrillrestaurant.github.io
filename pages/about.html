@@ -1,165 +1,142 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Open Graph Meta Tags for Sharing an Image Page -->
-<meta property="og:title" content="Welcome to Stone Grill Restaurant">
-<meta property="og:description" content="Experience the taste of our best dishes. Visit Stone Grill now!">
-<meta property="og:image" content="https://stonegrillrestaurant.github.io/pages/images/IMG1.jpg">
-<meta property="og:url" content="https://stonegrillrestaurant.github.io/pages/about.html">
-<meta property="og:type" content="website">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Open Graph Meta Tags for Sharing an Image Page -->
+    <meta property="og:title" content="Welcome to Stone Grill Restaurant" />
+    <meta property="og:description" content="Experience the taste of our best dishes. Visit Stone Grill now!" />
+    <meta property="og:image" content="https://stonegrillrestaurant.github.io/pages/images/IMG1.jpg" />
+    <meta property="og:url" content="https://stonegrillrestaurant.github.io/pages/about.html" />
+    <meta property="og:type" content="website" />
 
     <!-- Open Graph Tags for an Image Page -->
-<meta property="og:title" content="Reverence in every Dish!">
-<meta property="og:description" content="Stone Grill - Cooking is more than preparing meals.!">
-<meta property="og:image" content="https://stonegrillrestaurant.github.io/pages/about/images/IMG1.jpg">
-<meta property="og:url" content="https://stonegrillrestaurant.github.io/pages/about.html">
-<meta property="og:type" content="website">
-  <head>
-  <meta charset="UTF-8" />
-  <title>Login with Facebook</title>
-  <style>
-    body { font-family: Arial, sans-serif; text-align: center; margin-top: 100px; }
-    .fb-btn {
-      background-color: #4267B2;
-      color: white;
-      padding: 15px 25px;
-      border: none;
-      border-radius: 5px;
-      font-size: 16px;
-      cursor: pointer;
-    }
-    .fb-btn:hover {
-      background-color: #365899;
-    }
-  </style>
-</head>
-<body>
-  <h2>Login with Facebook</h2>
-  <button class="fb-btn" onclick="loginWithFacebook()">Login via Facebook</button>
+    <meta property="og:title" content="Reverence in every Dish!" />
+    <meta property="og:description" content="Stone Grill - Cooking is more than preparing meals.!" />
+    <meta property="og:image" content="https://stonegrillrestaurant.github.io/pages/about/images/IMG1.jpg" />
+    <meta property="og:url" content="https://stonegrillrestaurant.github.io/pages/about.html" />
+    <meta property="og:type" content="website" />
 
-  <script>
-    function loginWithFacebook() {
-      const appId = 'YOUR_APP_ID';  // 🔁 Replace with your real App ID
-      const redirectUri = 'https://ninox.github.io/myrestaurant/callback.html';  // Replace with your actual callback page
-      const state = 'stone123'; // Any random string for session verification
-      const scope = 'email,public_profile';
+    <title>Reverence in every dish</title>
+    <link rel="icon" type="image/x-icon" href="assets/sglogoico.ico" />
+    <style>
+      body {
+        font-family: "Segoe UI", sans-serif;
+        margin: 0;
+        background: #fff8f0;
+        color: #333;
+      }
 
-      const authUrl = `https://www.facebook.com/v19.0/dialog/oauth?client_id=${appId}&redirect_uri=${encodeURIComponent(redirectUri)}&response_type=token&scope=${scope}&state=${state}`;
+      header,
+      footer {
+        background: #b22222;
+        color: white;
+        padding: 1rem;
+        text-align: center;
+      }
 
-      window.location.href = authUrl;
-    }
-  </script>
-  
-  <title>Reverence in every dish</title>
-  <link rel="icon" type="image/x-icon" href="assets/sglogoico.ico" />
- <style>
-  body {
-    font-family: 'Segoe UI', sans-serif;
-    margin: 0;
-    background: #fff8f0;
-    color: #333;
-  }
+      nav {
+        background-color: #ffcc00;
+        padding: 0.4rem;
+        text-align: center;
+      }
 
-  header, footer {
-    background: #b22222;
-    color: white;
-    padding: 1rem;
-    text-align: center;
-  }
+      nav a {
+        margin: 0 1rem;
+        color: #b22222;
+        font-weight: bold;
+        text-decoration: none;
+      }
 
-  nav {
-    background-color: #ffcc00;
-    padding: 0.4rem;
-    text-align: center;
-  }
+      nav a:hover {
+        text-decoration: underline;
+      }
 
-  nav a {
-    margin: 0 1rem;
-    color: #b22222;
-    font-weight: bold;
-    text-decoration: none;
-  }
+      .container {
+        padding: 1rem;
+        max-width: 750px;
+        margin: auto;
+      }
 
-  nav a:hover {
-    text-decoration: underline;
-  }
+      .container img {
+        width: 100%;
+        border-radius: 10px;
+        margin-bottom: 0rem;
+      }
 
-  .container {
-    padding: 1rem;
-    max-width: 750px;
-    margin: auto;
-  }
+      h2 {
+        color: #b22222;
+      }
 
-  .container img {
-    width: 100%;
-    border-radius: 10px;
-    margin-bottom: 0rem;
-  }
-
-  h2 {
-    color: #b22222;
-  }
-
-  /* 🔴 Logo in circle with white background */
-  .logo-circle {
-  width: 42px;
-  height: 40px;
-  border-radius: 50%;
-  background-color: white;
-  margin-right: 14px;
-  padding: 0px;
-  object-fit: cover;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-  }
-</style>
-</head>
-<body>
-  <header>
-    <div style="display: flex; align-items: center;">
-   <img src="/pages/images/sglogo.PNG" alt="Stone Grill Logo" class="logo-circle">
-    <h1>Stone Grill Restaurant</h1>
-</div>
-  </header>
-  <nav>
-    <a href="https://stonegrillrestaurant.github.io/index.html">Home</a>
-    <a href="menu.html">Menu</a>
-    <a href="about.html">About</a>
-    <a href="contact.html">Contact</a>
-  </nav>
-  <div class="container">
-    <h1></h1>
-    <img src="/pages/images/IMG1.jpg" alt="Restaurant Interior"> 
+      /* 🔴 Logo in circle with white background */
+      .logo-circle {
+        width: 42px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: white;
+        margin-right: 14px;
+        padding: 0px;
+        object-fit: cover;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div style="display: flex; align-items: center">
+        <img src="/pages/images/sglogo.PNG" alt="Stone Grill Logo" class="logo-circle" />
+        <h1>Stone Grill Restaurant</h1>
+      </div>
+    </header>
+    <nav>
+      <a href="https://stonegrillrestaurant.github.io/index.html">Home</a>
+      <a href="menu.html">Menu</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="container">
+      <h1></h1>
+      <img src="/pages/images/IMG1.jpg" alt="Restaurant Interior" />
       <h2>Reverence in Every Dish</h2>
-    <p>At Stone Grill Restaurant, we honor the craft of cooking. Each dish is prepared with care, passion, and purpose</p>
-    <p>a celebration of flavor and tradition.</p>
-    <p>Cooking is more than preparing meals.</p>
-    <p>it’s a quiet act of love, care, and respect.</p>
-    <p>Every ingredient is treated with honor,
-every plate served with intention,
-and every dish tells a story of tradition, of passion, of people.
-
-We don’t just feed the body, we nourish the soul, with warmth, with heart, and with purpose. </p>
-    <p>We pride ourselves on using only high-quality ingredients. Our specialties include seafood, sizzling plates, Filipino favorites, and grilled meats, each served with warmth and a smile.</p>
-    <h2>Our Mission</h2>
-    <p>To deliver delicious food and create a relaxing atmosphere where every guest feels right at home. We believe that good food, good service, and a good ambiance go hand in hand in making unforgettable moments.</p>
-    <h2>Why Choose Us?</h2>
-    <ul>
-      <li>✅ Cook your meal with our grilling method</li>
-      <li>✅ Friendly and attentive service</li>
-      <li>✅ Family-friendly environment</li>
-      <li>✅ Centrally located at the heart of Bato, Leyte.</li>
-    </ul>
-    <p>Come join us and experience the sizzle at Stone Grill. We look forward to serving you!</p>
-  </div>
-  <footer>
-      <a href="https://www.facebook.com/sharer/sharer.php?u=https://stonegrillrestaurant.github.io/pages/about.html" 
-   target="_blank">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Facebook_Logo_%282019%29.png" 
-       alt="Share on Facebook" width="30">
-       </a>
-    &copy; 2025 Stone Grill Restaurant
-  </footer>
-</body>
+      <p>
+        At Stone Grill Restaurant, we honor the craft of cooking. Each dish is prepared with care, passion, and purpose
+      </p>
+      <p>a celebration of flavor and tradition.</p>
+      <p>Cooking is more than preparing meals.</p>
+      <p>it’s a quiet act of love, care, and respect.</p>
+      <p>
+        Every ingredient is treated with honor, every plate served with intention, and every dish tells a story of
+        tradition, of passion, of people. We don’t just feed the body, we nourish the soul, with warmth, with heart, and
+        with purpose.
+      </p>
+      <p>
+        We pride ourselves on using only high-quality ingredients. Our specialties include seafood, sizzling plates,
+        Filipino favorites, and grilled meats, each served with warmth and a smile.
+      </p>
+      <h2>Our Mission</h2>
+      <p>
+        To deliver delicious food and create a relaxing atmosphere where every guest feels right at home. We believe
+        that good food, good service, and a good ambiance go hand in hand in making unforgettable moments.
+      </p>
+      <h2>Why Choose Us?</h2>
+      <ul>
+        <li>✅ Cook your meal with our grilling method</li>
+        <li>✅ Friendly and attentive service</li>
+        <li>✅ Family-friendly environment</li>
+        <li>✅ Centrally located at the heart of Bato, Leyte.</li>
+      </ul>
+      <p>Come join us and experience the sizzle at Stone Grill. We look forward to serving you!</p>
+    </div>
+    <footer>
+      <a
+        href="https://www.facebook.com/sharer/sharer.php?u=https://stonegrillrestaurant.github.io/pages/about.html"
+        target="_blank">
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/0/05/Facebook_Logo_%282019%29.png"
+          alt="Share on Facebook"
+          width="30" />
+      </a>
+      &copy; 2025 Stone Grill Restaurant
+    </footer>
+  </body>
 </html>
