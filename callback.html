@@ -17,13 +17,11 @@
     <code id="token">Loading...</code>
   </div>
 
-  <script>
-    // Get access token from URL fragment
-    const hash = window.location.hash.substring(1);
-    const params = new URLSearchParams(hash);
-    const accessToken = params.get("access_token");
+ <script>
+  const params = new URLSearchParams(window.location.hash.substring(1));
+  const accessToken = params.get("access_token");
+  console.log("Facebook Access Token:", accessToken);
+</script>
 
-    document.getElementById("token").textContent = accessToken || "No access token found.";
-  </script>
 </body>
 </html>
