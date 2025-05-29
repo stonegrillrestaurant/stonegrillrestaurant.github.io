@@ -16,6 +16,41 @@
 <meta property="og:image" content="https://stonegrillrestaurant.github.io/pages/about/images/IMG1.jpg">
 <meta property="og:url" content="https://stonegrillrestaurant.github.io/pages/about.html">
 <meta property="og:type" content="website">
+  <head>
+  <meta charset="UTF-8" />
+  <title>Login with Facebook</title>
+  <style>
+    body { font-family: Arial, sans-serif; text-align: center; margin-top: 100px; }
+    .fb-btn {
+      background-color: #4267B2;
+      color: white;
+      padding: 15px 25px;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .fb-btn:hover {
+      background-color: #365899;
+    }
+  </style>
+</head>
+<body>
+  <h2>Login with Facebook</h2>
+  <button class="fb-btn" onclick="loginWithFacebook()">Login via Facebook</button>
+
+  <script>
+    function loginWithFacebook() {
+      const appId = 'YOUR_APP_ID';  // 🔁 Replace with your real App ID
+      const redirectUri = 'https://ninox.github.io/myrestaurant/callback.html';  // Replace with your actual callback page
+      const state = 'stone123'; // Any random string for session verification
+      const scope = 'email,public_profile';
+
+      const authUrl = `https://www.facebook.com/v19.0/dialog/oauth?client_id=${appId}&redirect_uri=${encodeURIComponent(redirectUri)}&response_type=token&scope=${scope}&state=${state}`;
+
+      window.location.href = authUrl;
+    }
+  </script>
   
   <title>Reverence in every dish</title>
   <link rel="icon" type="image/x-icon" href="assets/sglogoico.ico" />
