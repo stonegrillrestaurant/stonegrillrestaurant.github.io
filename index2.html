@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Stone Grill Restaurant</title>
+</head>
+<body>
+  <h1>Welcome to Stone Grill Restaurant</h1>
+  <p>Enjoy exclusive content by logging in with Facebook!</p>
+
+  <!-- Facebook Login Button -->
+  <div class="facebook-login" style="margin: 20px 0;">
+    <fb:login-button 
+      scope="public_profile,email"
+      onlogin="checkLoginState();">
+    </fb:login-button>
+    <div id="status"></div>
+  </div>
+
+  <!-- Facebook SDK -->
+  <script async defer crossorigin="anonymous"
+    src="https://connect.facebook.net/en_US/sdk.js"></script>
+
+  <script>
+    window.fbAsyncInit = function() {
+      FB.init({
+        appId      : '1931174884373345',
+        cookie     : true,
+        xfbml      : true,
+        version    : 'v19.0'
+      });
+      FB.AppEvents.logPageView();   
+    };
+
+    function checkLoginState() {
+      FB.getLoginStatus(function(response) {
+        statusChangeCallback(response);
+      });
+    }
+
+    function statusChangeCallback(response) {
+      if (response.status === 'connected') {
+        window.location.href = "login-success.html";
+      } else {
+        document.getElementById('status').innerText = 'Please log into this site using Facebook.';
+      }
+    }
+  </script>
+</body>
+</html>
