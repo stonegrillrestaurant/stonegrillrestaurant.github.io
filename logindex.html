@@ -4,21 +4,38 @@
   <title>Welcome to Our Page</title>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 50px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #4267B2;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #365899;
+    }
+    #user-info {
+      margin-top: 30px;
+      font-size: 18px;
+    }
+  </style>
 </head>
 <body>
   <h1>Welcome to Our Page</h1>
   <div id="fb-root"></div>
 
-  <div class="fb-login-button" 
-       data-width="" 
-       data-size="large" 
-       data-button-type="login_with" 
-       data-layout="default" 
-       data-auto-logout-link="false" 
-       data-use-continue-as="false" 
-       data-scope="public_profile,email"
-       onlogin="checkLoginState();">
-  </div>
+  <button onclick="loginWithFacebook()">Login with Facebook</button>
+  <button onclick="logoutFromFacebook()" style="display:none; margin-left:10px; background:#999;">Logout</button>
+
+  <div id="user-info"></div>
 
   <script>
     window.fbAsyncInit = function () {
@@ -29,7 +46,11 @@
         version: 'v19.0'
       });
 
-      FB.AppEvents.logPageView();
+      FB.getLoginStatus(function(response) {
+        if (response.status === 'connected') {
+          fetchUserInfo();
+        }
+      });
     };
 
     (function (d, s, id) {
@@ -40,13 +61,30 @@
       fjs.parentNode.insertBefore(js, fjs);
     })(document, 'script', 'facebook-jssdk');
 
-    function checkLoginState() {
-      FB.getLoginStatus(function (response) {
-        if (response.status === 'connected') {
-          window.location.href = "login-success.html";
+    function loginWithFacebook() {
+      FB.login(function(response) {
+        if (response.authResponse) {
+          fetchUserInfo();
         } else {
-          alert("Facebook login failed.");
+          alert('Login cancelled or not authorized.');
         }
+      }, {scope: 'public_profile,email'});
+    }
+
+    function fetchUserInfo() {
+      FB.api('/me', {fields: 'name,email'}, function(user) {
+        document.getElementById('user-info').innerHTML =
+          `<p><strong>Name:</strong> ${user.name}</p>
+           <p><strong>Email:</strong> ${user.email}</p>`;
+        document.querySelector("button[onclick='logoutFromFacebook()']").style.display = 'inline-block';
+      });
+    }
+
+    function logoutFromFacebook() {
+      FB.logout(function(response) {
+        document.getElementById('user-info').innerHTML = '';
+        document.querySelector("button[onclick='logoutFromFacebook()']").style.display = 'none';
+        alert('You have been logged out.');
       });
     }
   </script>
