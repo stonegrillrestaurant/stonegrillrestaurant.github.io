@@ -138,5 +138,32 @@
       </a>
       &copy; 2025 Stone Grill Restaurant
     </footer>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '1931174884373345',
+      cookie     : true,
+      xfbml      : true,
+      version    : 'v19.0'
+    });
+    FB.AppEvents.logPageView();   
+  };
+
+  function checkLoginState() {
+    FB.getLoginStatus(function(response) {
+      statusChangeCallback(response);
+    });
+  }
+
+  function statusChangeCallback(response) {
+    if (response.status === 'connected') {
+      window.location.href = "login-success.html";
+    } else {
+      document.getElementById('status').innerText = 'Please log into this site using Facebook.';
+    }
+  }
+</script>
+
   </body>
 </html>
