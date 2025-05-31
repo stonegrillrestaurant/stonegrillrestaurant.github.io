@@ -1,10 +1,41 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Login Success</title>
+  <title>Login Successful</title>
 </head>
 <body>
-  <h2>Login Successful!</h2>
-  <p>Welcome back to Stone Grill Restaurant. You are now logged in.</p>
+  <h1>Welcome!</h1>
+  <div id="user-info">Fetching your info...</div>
+
+  <script>
+    window.fbAsyncInit = function () {
+      FB.init({
+        appId: '1043497450560748',
+        cookie: true,
+        xfbml: true,
+        version: 'v19.0'
+      });
+
+      FB.getLoginStatus(function (response) {
+        if (response.status === 'connected') {
+          FB.api('/me', {fields: 'name,email'}, function (response) {
+            document.getElementById('user-info').innerHTML =
+              `<p>Name: ${response.name}</p><p>Email: ${response.email}</p>`;
+          });
+        } else {
+          window.location.href = "index.html";
+        }
+      });
+    };
+
+    (function (d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "https://connect.facebook.net/en_US/sdk.js";
+      fjs.parentNode.insertBefore(js, fjs);
+    })(document, 'script', 'facebook-jssdk');
+  </script>
 </body>
 </html>
+
