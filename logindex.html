@@ -1,62 +1,92 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Login with Facebook</title>
+  <title>Welcome to Our Page</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 50px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #4267B2;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #365899;
+    }
+    #user-info {
+      margin-top: 30px;
+      font-size: 18px;
+    }
+  </style>
 </head>
 <body>
-  <h2>Login with Facebook</h2>
+  <h1>Welcome to Our Page</h1>
+  <div id="fb-root"></div>
 
-  <!-- Facebook Login Button -->
-  <fb:login-button 
-    scope="public_profile,email"
-    onlogin="checkLoginState();">
-  </fb:login-button>
+  <button onclick="loginWithFacebook()">Login with Facebook</button>
+  <button onclick="logoutFromFacebook()" style="display:none; margin-left:10px; background:#999;">Logout</button>
 
-  <div id="status"></div>
-
-  <!-- Load Facebook SDK -->
-  <script async defer crossorigin="anonymous"
-    src="https://connect.facebook.net/en_US/sdk.js"></script>
+  <div id="user-info"></div>
 
   <script>
-    window.fbAsyncInit = function() {
+    window.fbAsyncInit = function () {
       FB.init({
-        appId      : '1931174884373345',
-        cookie     : true,
-        xfbml      : true,
-        version    : 'v19.0'
+        appId: '1043497450560748',
+        cookie: true,
+        xfbml: true,
+        version: 'v19.0'
       });
 
-      FB.AppEvents.logPageView();   
+      FB.getLoginStatus(function(response) {
+        if (response.status === 'connected') {
+          fetchUserInfo();
+        }
+      });
     };
 
-    function checkLoginState() {
-      FB.getLoginStatus(function(response) {
-        statusChangeCallback(response);
+    (function (d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "https://connect.facebook.net/en_US/sdk.js";
+      fjs.parentNode.insertBefore(js, fjs);
+    })(document, 'script', 'facebook-jssdk');
+
+    function loginWithFacebook() {
+      FB.login(function(response) {
+        if (response.authResponse) {
+          fetchUserInfo();
+        } else {
+          alert('Login cancelled or not authorized.');
+        }
+      }, {scope: 'public_profile,email'});
+    }
+
+    function fetchUserInfo() {
+      FB.api('/me', {fields: 'name,email'}, function(user) {
+        document.getElementById('user-info').innerHTML =
+          `<p><strong>Name:</strong> ${user.name}</p>
+           <p><strong>Email:</strong> ${user.email}</p>`;
+        document.querySelector("button[onclick='logoutFromFacebook()']").style.display = 'inline-block';
       });
     }
 
-    function statusChangeCallback(response) {
-      console.log('Facebook login status:', response);
-      if (response.status === 'connected') {
-        // Redirect after login success
-        window.location.href = "https://stonegrillrestaurant.github.io/pages/about.html";
-      } else {
-        document.getElementById('status').innerHTML = 'Please log into this site using Facebook.';
-      }
+    function logoutFromFacebook() {
+      FB.logout(function(response) {
+        document.getElementById('user-info').innerHTML = '';
+        document.querySelector("button[onclick='logoutFromFacebook()']").style.display = 'none';
+        alert('You have been logged out.');
+      });
     }
   </script>
-</body>
-</html>
-"""
-
-login_success_html_content = """<!DOCTYPE html>
-<html>
-<head>
-  <title>Login Success</title>
-</head>
-<body>
-  <h2>Login Successful!</h2>
-  <p>Welcome back to Stone Grill Restaurant.</p>
 </body>
 </html>

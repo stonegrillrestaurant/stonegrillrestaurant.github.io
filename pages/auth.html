@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login with Facebook</title>
+  <script async defer crossorigin="anonymous"
+    src="https://connect.facebook.net/en_US/sdk.js"></script>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #fff8f0;
+      text-align: center;
+      padding-top: 100px;
+    }
+    h1 {
+      color: #b22222;
+    }
+    #loginBtn {
+      background-color: #4267B2;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 18px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>Sign in with Facebook</h1>
+  <button id="loginBtn" onclick="loginWithFacebook()">Login</button>
+
+  <script>
+    window.fbAsyncInit = function () {
+      FB.init({
+        appId: '1043497450560748', // 🔁 Replace with your App ID
+        cookie: true,
+        xfbml: true,
+        version: 'v19.0'
+      });
+    };
+
+    function loginWithFacebook() {
+      FB.login(function (response) {
+        if (response.authResponse) {
+          // You can redirect or do something here
+          alert('Login successful!');
+          window.location.href = "/pages/welcome.html"; // create this page after login
+        } else {
+          alert('User cancelled login or did not fully authorize.');
+        }
+      }, { scope: 'public_profile,email' });
+    }
+  </script>
+</body>
+</html>
