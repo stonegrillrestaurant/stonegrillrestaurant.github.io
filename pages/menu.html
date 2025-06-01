@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script>
+  // Redirect if not logged in
+  if (!localStorage.getItem('fb_user_logged_in')) {
+    window.location.href = "../index.html";
+  }
+</script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- Open Graph Meta Tags for Sharing an Image Page -->
