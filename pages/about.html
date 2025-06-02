@@ -1,197 +1,134 @@
-<!doctype html>
+
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Open Graph Meta Tags for Sharing an Image Page -->
-    <meta property="og:title" content="Welcome to Stone Grill Restaurant" />
-    <meta property="og:description" content="Experience the taste of our best dishes. Visit Stone Grill now!" />
-    <meta property="og:image" content="https://stonegrillrestaurant.github.io/pages/images/IMG1.jpg" />
-    <meta property="og:url" content="https://stonegrillrestaurant.github.io/pages/about.html" />
-    <meta property="og:type" content="website" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About Us - Stone Grill</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      background: #fff8f0;
+      color: #333;
+    }
 
-    <!-- Open Graph Tags for an Image Page -->
-    <meta property="og:title" content="Reverence in every Dish!" />
-    <meta property="og:description" content="Stone Grill - Cooking is more than preparing meals.!" />
-    <meta property="og:image" content="https://stonegrillrestaurant.github.io/pages/about/images/IMG1.jpg" />
-    <meta property="og:url" content="https://stonegrillrestaurant.github.io/pages/about.html" />
-    <meta property="og:type" content="website" />
+    header, footer {
+      background: #b22222;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+    }
 
-    <title>Reverence in every dish</title>
-    <link rel="icon" type="image/x-icon" href="assets/sglogoico.ico" />
-    <style>
-      body {
-        font-family: "Segoe UI", sans-serif;
-        margin: 0;
-        background: #fff8f0;
-        color: #333;
-      }
+    header .header-content {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+    }
 
-      header,
-      footer {
-        background: #b22222;
-        color: white;
-        padding: 1rem;
-        text-align: center;
-      }
+    nav {
+      background-color: #ffcc00;
+      padding: 0.5rem;
+      text-align: center;
+    }
 
-      nav {
-        background-color: #ffcc00;
-        padding: 0.4rem;
-        text-align: center;
-      }
+    nav a {
+      margin: 0 1rem;
+      color: #b22222;
+      font-weight: bold;
+      text-decoration: none;
+    }
 
-      nav a {
-        margin: 0 1rem;
-        color: #b22222;
-        font-weight: bold;
-        text-decoration: none;
-      }
+    nav a:hover {
+      text-decoration: underline;
+    }
 
-      nav a:hover {
-        text-decoration: underline;
-      }
+    .container {
+      padding: 1rem;
+      max-width: 300px;
+      margin: auto;
+      text-align: center;
+    }
 
-      .container {
-        padding: 1rem;
-        max-width: 750px;
-        margin: auto;
-      }
+    .container img {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 1rem;
+    }
 
-      .container img {
-        width: 100%;
-        border-radius: 10px;
-        margin-bottom: 0rem;
-      }
+    .contact-info p {
+      margin: 1rem 0;
+      font-size: 1.1rem;
+    }
 
-      h2 {
-        color: #b22222;
-      }
+    .social a {
+      color: #b22222;
+      font-weight: bold;
+      text-decoration: none;
+    }
 
-      /* 🔴 Logo in circle with white background */
-      .logo-circle {
-        width: 42px;
-        height: 40px;
-        border-radius: 50%;
-        background-color: white;
-        margin-right: 14px;
-        padding: 0px;
-        object-fit: cover;
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-      }
-                  <fb:login-button 
-  scope="public_profile,email" 
-  onlogin="checkLoginState();">
-</fb:login-button>
+    .social a:hover {
+      text-decoration: underline;
+    }
 
-<div id="status"></div>
-    
-    <header>
-      <div style="display: flex; align-items: center">
-        <img src="/pages/images/sglogo.PNG" alt="Stone Grill Logo" class="logo-circle" />
-        <h1>Stone Grill Restaurant</h1>
-      </div>
-    </header>
-    <nav>
-      <a href="https://stonegrillrestaurant.github.io/index.html">Home</a>
-      <a href="menu.html">Menu</a>
-      <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-    <div class="container">
-      <h1></h1>
-      <img src="/pages/images/IMG1.jpg" alt="Restaurant Interior" />
-      <h2>Reverence in Every Dish</h2>
-      <p>
-        At Stone Grill Restaurant, we honor the craft of cooking. Each dish is prepared with care, passion, and purpose
-      </p>
-      <p>a celebration of flavor and tradition.</p>
-      <p>Cooking is more than preparing meals.</p>
-      <p>it’s a quiet act of love, care, and respect.</p>
-      <p>
-        Every ingredient is treated with honor, every plate served with intention, and every dish tells a story of
-        tradition, of passion, of people. We don’t just feed the body, we nourish the soul, with warmth, with heart, and
-        with purpose.
-      </p>
-      <p>
-        We pride ourselves on using only high-quality ingredients. Our specialties include seafood, sizzling plates,
-        Filipino favorites, and grilled meats, each served with warmth and a smile.
-      </p>
-      <h2>Our Mission</h2>
-      <p>
-        To deliver delicious food and create a relaxing atmosphere where every guest feels right at home. We believe
-        that good food, good service, and a good ambiance go hand in hand in making unforgettable moments.
-      </p>
-      <h2>Why Choose Us?</h2>
-      <ul>
-        <li>✅ Cook your meal with our grilling method</li>
-        <li>✅ Friendly and attentive service</li>
-        <li>✅ Family-friendly environment</li>
-        <li>✅ Centrally located at the heart of Bato, Leyte.</li>
-      </ul>
-      <p>Come join us and experience the sizzle at Stone Grill. We look forward to serving you!</p>
+    iframe {
+      width: 100%;
+      height: 200px;
+      border: 0;
+      border-radius: 10px;
+      margin-top: 1rem;
+    }
+
+    .logo-circle {
+      width: 40px;
+      height: 37px;
+      border-radius: 100%;
+      background-color: white;
+      padding: 3px;
+      object-fit: cover;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <img src="/pages/images/sglogo.PNG" alt="Stone Grill Logo" class="logo-circle" />
+      <h1>Stone Grill Restaurant</h1>
     </div>
-    <footer>
-      <a
-        href="https://www.facebook.com/sharer/sharer.php?u=https://stonegrillrestaurant.github.io/pages/about.html"
-        target="_blank">
-        <img
-          src="https://upload.wikimedia.org/wikipedia/commons/0/05/Facebook_Logo_%282019%29.png"
-          alt="Share on Facebook"
-          width="30" />
-      </a>
-      &copy; 2025 Stone Grill Restaurant
-    </footer>
-    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js">
-   
-                 // Load the Facebook SDK
+  </header>
 
-// Load SDK asynchronously
-  // Load the Facebook SDK
-window.fbAsyncInit = function() {
-  FB.init({
-    appId      : '1043497450560748', // Your App ID
-    cookie     : true,               // Enable cookies
-    xfbml      : true,               // Parse social plugins on this webpage
-    version    : 'v23.0'             // Use latest Graph API version
-  });
+  <nav>
+    <a href="https://stonegrillrestaurant.github.io/">Home</a>
+    <a href="menu.html">Menu</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </nav>
 
-  // Check login status on page load
-  FB.getLoginStatus(function(response) {
-    statusChangeCallback(response);
-  });
-};
+  <main class="container">
+    <h1>About Us</h1>
+    <img src="/pages/images/stonestaff.jpg" alt="Restaurant Staff" />
+    <p><strong>Welcome to Stone Grill Restaurant</strong> – your go-to destination for a unique dining experience.</p>
+    <p>Founded in 2014, we introduced the concept of hot stone cooking to our community, allowing guests to enjoy freshly grilled meals right at their table. This interactive style of dining makes every visit memorable and perfect for families, friends, and special celebrations.</p>
+    <p>We pride ourselves on using only high-quality ingredients, hand-picked by our culinary team. Our specialties include seafood, sizzling plates, Filipino favorites, and grilled meats, each served with warmth and a smile.</p>
 
-// Load SDK asynchronously
-(function(d, s, id){
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "https://connect.facebook.net/en_US/sdk.js";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));
+    <h2>Our Mission</h2>
+    <p>To deliver delicious food and create a relaxing atmosphere where every guest feels right at home. We believe that good food, good service, and a good ambiance go hand in hand in making unforgettable moments.</p>
 
-// Handle response
-function statusChangeCallback(response) {
-  if (response.status === 'connected') {
-    // User is logged in → redirect or show a welcome message
-    console.log('User is logged in');
-    window.location.href = "https://stonegrillrestaurant.github.io/pages/menu.html";
-  } else {
-    console.log('User is not logged in');
-    document.getElementById('status').innerHTML = 'Please log in using Facebook.';
-  }
-}
+    <h2>Why Choose Us?</h2>
+    <ul style="text-align: left;">
+      <li>✅ Cook your meal your way with our hot stone grilling method</li>
+      <li>✅ Friendly and attentive service</li>
+      <li>✅ Family-friendly environment</li>
+      <li>✅ Centrally located at the heart of Bato, Leyte</li>
+    </ul>
 
-// Optional: Trigger on FB login button click
-function checkLoginState() {
-  FB.getLoginStatus(function(response) {
-    statusChangeCallback(response);
-  });
-}
-</script>
-      
+    <p>Come join us and experience the sizzle at Stone Grill. We look forward to serving you!</p>
+  </main>
 
-</section>
-  </body>
+  <footer>
+    &copy; 2025 Stone Grill Restaurant
+  </footer>
+</body>
 </html>
