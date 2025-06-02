@@ -149,30 +149,49 @@
       &copy; 2025 Stone Grill Restaurant
     </footer>
     <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js">
+          // Load the Facebook SDK
+window.fbAsyncInit = function() {
+  FB.init({
+    appId      : '1043497450560748', // Your App ID
+    cookie     : true,               // Enable cookies
+    xfbml      : true,               // Parse social plugins on this webpage
+    version    : 'v23.0'             // Use latest Graph API version
+  });
 
-  window.fbAsyncInit = function() {
-    FB.init({
-      appId      : '1043497450560748',
-      cookie     : true,
-      xfbml      : true,
-      version    : 'v19.0'
-    });
-    FB.AppEvents.logPageView();   
-  };
+  // Check login status on page load
+  FB.getLoginStatus(function(response) {
+    statusChangeCallback(response);
+  });
+};
 
-  function checkLoginState() {
-    FB.getLoginStatus(function(response) {
-      statusChangeCallback(response);
-    });
+// Load SDK asynchronously
+(function(d, s, id){
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "https://connect.facebook.net/en_US/sdk.js";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+
+// Handle response
+function statusChangeCallback(response) {
+  if (response.status === 'connected') {
+    // User is logged in → redirect or show a welcome message
+    console.log('User is logged in');
+    window.location.href = "https://stonegrillrestaurant.github.io/pages/menu.html";
+  } else {
+    console.log('User is not logged in');
+    document.getElementById('status').innerHTML = 'Please log in using Facebook.';
   }
+}
 
-  function statusChangeCallback(response) {
-    if (response.status === 'connected') {
-      window.location.href = "login-success.html";
-    } else {
-      document.getElementById('status').innerText = 'Please log into this site using Facebook.';
-    }
-  }
+// Optional: Trigger on FB login button click
+function checkLoginState() {
+  FB.getLoginStatus(function(response) {
+    statusChangeCallback(response);
+  });
+}
+
 </script>
       <!-- Facebook SDK -->
       <style>
