@@ -1,13 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <script>
-  // Redirect if not logged in
-  if (!localStorage.getItem('fb_user_logged_in')) {
-    window.location.href = "../index.html";
-  }
-</script>
-  <meta charset="UTF-8">
+ 
+ <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- Open Graph Meta Tags for Sharing an Image Page -->
 <meta property="og:title" content="Welcome to Stone Grill Restaurant">
@@ -22,6 +17,13 @@
 <meta property="og:image" content="https://stonegrillrestaurant.github.io/pages/about/images/IMG1.jpg">
 <meta property="og:url" content="https://stonegrillrestaurant.github.io/pages/about.html">
 <meta property="og:type" content="website">
+  
+   <script>
+  // Redirect if not logged in
+  if (!localStorage.getItem('fb_user_logged_in')) {
+    window.location.href = "/pages/auth.html";
+  }
+</script>
   
   <title>Reverence in every dish</title>
   <link rel="icon" type="image/x-icon" href="assets/sglogoico.ico" />
