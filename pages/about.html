@@ -79,6 +79,12 @@
         object-fit: cover;
         box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
       }
+                  <fb:login-button 
+  scope="public_profile,email" 
+  onlogin="checkLoginState();">
+</fb:login-button>
+
+<div id="status"></div>
           <style>
 .facebook-feed {
   background-color: #fff8f0;
