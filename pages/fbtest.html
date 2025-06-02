@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Facebook Login Test</title>
+</head>
+<body>
+  <h2>Facebook Login Demo for Stone Grill</h2>
+  <fb:login-button 
+    scope="public_profile,email" 
+    onlogin="checkLoginState();">
+  </fb:login-button>
+
+  <div id="status"></div>
+
+  <script>
+    window.fbAsyncInit = function() {
+      FB.init({
+        appId      : '1043497450560748',
+        cookie     : true,
+        xfbml      : true,
+        version    : 'v23.0'
+      });
+
+      FB.getLoginStatus(function(response) {
+        statusChangeCallback(response);
+      });
+    };
+
+    (function(d, s, id){
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) {return;}
+      js = d.createElement(s); js.id = id;
+      js.src = "https://connect.facebook.net/en_US/sdk.js";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+
+    function statusChangeCallback(response) {
+      if (response.status === 'connected') {
+        // User is logged in, redirect them to your menu page
+        window.location.href = "https://stonegrillrestaurant.github.io/pages/menu.html";
+      } else {
+        document.getElementById('status').innerHTML = 'Please log in using the button above.';
+      }
+    }
+
+    function checkLoginState() {
+      FB.getLoginStatus(function(response) {
+        statusChangeCallback(response);
+      });
+    }
+  </script>
+</body>
+</html>
