@@ -1,5 +1,4 @@
-
-!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="utf-8" />
@@ -27,7 +26,7 @@
                 <li class="sidebar-nav-item"><a href="/pages/contact.html">Home</a></li>
                 <li class="sidebar-nav-item"><a href="/pages/about.html">About</a></li>
                 <li class="sidebar-nav-item"><a href="/pages/menu.html">Menu</a></li>
-                <li class="sidebar-nav-item"><a href="portfolio">Portfolio</a></li>
+                <li class="sidebar-nav-item"><a href="/index2.html">Portfolio</a></li>
                 <li class="sidebar-nav-item"><a href="/pages/contact.html">Contact</a></li>
             </ul>
         </nav>
@@ -55,51 +54,6 @@
                 <p class="text-muted small mb-0">Copyright &copy; Stone Grill Restaurant 2025 </p>
             </div>
         </footer>
-        <!-- Scroll to Top Button-->
-        <a class="scroll-to-top rounded" href="#page-top"><i class="fas fa-angle-up"></i></a>
-        <!-- Bootstrap core JS-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- Core theme JS-->
-          <div class="fb-login-button" 
-       data-width="" 
-       data-size="large" 
-       data-button-type="login_with" 
-       data-layout="default" 
-       data-auto-logout-link="false" 
-       data-use-continue-as="false" 
-       data-scope="public_profile,email"
-       onlogin="checkLoginState();">
-  </div>
 
-  <script>
-    window.fbAsyncInit = function () {
-      FB.init({
-        appId: '1043497450560748',
-        cookie: true,
-        xfbml: true,
-        version: 'v19.0'
-      });
-
-      FB.AppEvents.logPageView();
-    };
-
-    (function (d, s, id) {
-      var js, fjs = d.getElementsByTagName(s)[0];
-      if (d.getElementById(id)) return;
-      js = d.createElement(s); js.id = id;
-      js.src = "https://connect.facebook.net/en_US/sdk.js";
-      fjs.parentNode.insertBefore(js, fjs);
-    })(document, 'script', 'facebook-jssdk');
-
-    function checkLoginState() {
-      FB.getLoginStatus(function (response) {
-        if (response.status === 'connected') {
-          window.location.href = "login-success.html";
-        } else {
-          alert("Facebook login failed.");
-        }
-      });
-    }
-  </script>
-    </body>
+ </body>
 </html>
