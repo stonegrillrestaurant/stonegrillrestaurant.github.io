@@ -5,30 +5,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About Us - Stone Grill</title>
 <body>
-header, footer {
-    background: #b22222;
-    color: white;
-    padding: 1rem;
-    text-align: center;
+  /* 🔴 Logo in circle with white background */
+  .logo-circle {
+  width: 50px;
+  height: 47px;
+  border-radius: 50%;
+  background-color: white;
+  margin-right: 15px;
+  padding: 0px;
+  object-fit: cover;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
   }
-
-   nav {
-    background-color: #ffcc00;
-    padding: 0.5rem;
-    text-align: center;
-  }
-
-  nav a {
-    margin: 0 1rem;
-    color: #b22222;
-    font-weight: bold;
-    text-decoration: none;
-  }
-
-  nav a:hover {
-    text-decoration: underline;
-  }
-  <nav>
+</style>
+</head>
+<body>
+  <header>
+    <div style="display: flex; align-items: center;">
+   <img src="/pages/images/sglogo.PNG" alt="Stone Grill Logo" class="logo-circle">
+    <h1>Stone Grill Restaurant</h1>
+</div>
+  </header>
+ <nav>
     <a href="https://stonegrillrestaurant.github.io">Home</a>
     <a href="menu.html">Menu</a>
     <a href="about.html">About</a>
@@ -37,7 +34,6 @@ header, footer {
     <a href="blog2.html">Blog2</a>
   </nav>
 <!-- START: Reflection Section -->
-<style>
   .reflection-container p {
     margin-bottom: 16px;
     text-align: justify;
