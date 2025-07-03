@@ -68,6 +68,27 @@
     header h1 {
       font-size: 1.5rem;
     }
+    .media-section {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+  text-align: center;
+}
+
+.media-section iframe {
+  width: 100%;
+  max-width: 640px;
+  height: 360px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.fb-share-button {
+  margin-top: 10px;
+}
+    
+    
 </style>
 </head>
 
@@ -108,7 +129,7 @@
 </div>
 
 </main>
-
+<section>
   <div style="display: flex; justify-content: center; align-items: center; margin: 2rem 0;">
     <iframe 
     width="640" 
@@ -122,16 +143,21 @@
 </div>
 
 <div id="fb-root"></div>
-<script async defer crossorigin="anonymous"
-  src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v19.0">
-</script>
+
   <div class="fb-share-button"
      data-href="https://stonegrillrestaurant.github.io/pages/blog2.html"
      data-layout="button"
      data-size="large">
   </div>
+</section>
+  
 <footer>
   &copy; 2025 Stone Grill Restaurant
 </footer>
+
+<script async defer crossorigin="anonymous"
+  src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v19.0">
+</script>
+
 </body>
 </html>
