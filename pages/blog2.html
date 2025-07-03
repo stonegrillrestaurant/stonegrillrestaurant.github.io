@@ -1,163 +1,147 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Open Graph Meta Tags for Facebook Sharing -->
-<meta property="og:title" content=" More Than Meets the Eye" />
-<meta property="og:description" content="how reality is shaped by perception." />
-<meta property="og:image" content="https://stonegrillrestaurant.github.io/pages/images/IMG_3928.jpeg" />
-<meta property="og:url" content="https://stonegrillrestaurant.github.io/pages/blog2.html" />
-<meta property="og:type" content="website" />
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>More Than Meets the Eye | Stone Grill Restaurant</title>
-   
-<!-- Favicon Icon for Browser Tab -->
-<link rel="icon" type="image/x-icon" href="assets/sglogoico.ico">
-
-<!-- Optional: Font (if not yet included) -->
-<link href="https://fonts.googleapis.com/css2?family=Segoe+UI&display=swap" rel="stylesheet">
-
-<style>
-  body {
-    font-family: 'Segoe UI', sans-serif;
-    margin: 0;
-    padding: 0;
-    background: #fff8f0;
-    color: #333;
-  }
-
-  header {
-    background-color: #b22222;
-    color: white;
-    padding: 1rem 0;
-  }
-
-  .header-content {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 15px;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-  }
-
-  .logo-circle {
-    width: 50px;
-    height: 47px;
-    border-radius: 50%;
-    background-color: white;
-    padding: 2px;
-    object-fit: cover;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-  }
-
-  header h1 {
-    font-size: 1.8rem;
-    margin: 0;
-  }
-
-  /* ✅ Mobile Responsive */
-  @media (max-width: 600px) {
-    .header-content {
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
+  <link rel="icon" type="image/x-icon" href="assets/sglogoico.ico">
+  <link href="https://fonts.googleapis.com/css2?family=Segoe+UI&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #fff8f0;
+      color: #333;
     }
-
+    header {
+      background-color: #b22222;
+      color: white;
+      padding: 1rem 0;
+    }
+    .header-content {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 15px;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    .logo-circle {
+      width: 50px;
+      height: 47px;
+      border-radius: 50%;
+      background-color: white;
+      padding: 2px;
+      object-fit: cover;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    }
     header h1 {
-      font-size: 1.5rem;
+      font-size: 1.8rem;
+      margin: 0;
+    }
+    @media (max-width: 600px) {
+      .header-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+      header h1 {
+        font-size: 1.5rem;
+      }
+    }
+    .reflection-container {
+      max-width: 800px;
+      margin: 60px auto;
+      padding: 30px;
+      background-color: #fff8f0;
+      border: 1px solid #e2d4c5;
+      border-radius: 8px;
+      font-family: 'Merriweather', serif;
+      line-height: 1.8;
+      color: #3b2f2f;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    }
+    .reflection-container h2 {
+      font-size: 28px;
+      margin-bottom: 20px;
+      text-align: center;
+      color: #993333;
+      font-weight: normal;
+    }
+    .reflection-container p {
+      margin-bottom: 16px;
+      text-align: justify;
     }
     .media-section {
-  max-width: 800px;
-  margin: 40px auto;
-  padding: 20px;
-  text-align: center;
-}
-
-.media-section iframe {
-  width: 100%;
-  max-width: 640px;
-  height: 360px;
-  border-radius: 8px;
-  margin-bottom: 20px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-}
-
-.fb-share-button {
-  margin-top: 10px;
-}
-    
-    
-</style>
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 20px;
+      text-align: center;
+    }
+    .media-section iframe {
+      width: 100%;
+      max-width: 640px;
+      height: 360px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    .fb-share-button {
+      margin-top: 10px;
+    }
+    footer {
+      background: #b22222;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+    }
+  </style>
 </head>
-
 <body>
-   <header>
+  <header>
     <div class="header-content">
-      <div style="display: flex; align-items: center;">
       <img src="/pages/images/sglogo.PNG" alt="Stone Grill Logo" class="logo-circle" />
       <h1>Stone Grill Restaurant</h1>
     </div>
   </header>
-  <nav>
-    <a href="https://stonegrillrestaurant.github.io">Home</a>
-    <a href="menu.html">Menu</a>
-    <a href="about.html">About</a>
-    <a href="contact.html">Contact</a>
-    <a href="auth.html">Blog</a>
-    <a href="blog2.html">Blog2</a>
-  </nav>
-  
+
   <main>
-    
-  <div class="reflection-container">
-  <h2>More Than Meets the Eye</h2>
-  <p>Every day, we trust our eyes. We look at the world and assume that what we see is what exists — solid, absolute, and unchanging. But what if much of what we see isn’t actually “there”? What if some of the things we believe to be real are not parts of the world, but creations of the mind?</p>
-  <p>Take color, for instance. It feels real. We see blue skies, green leaves, golden sunsets. But scientifically, color isn’t a property of objects — it’s a result of how our brains interpret light waves. Without eyes to perceive them, colors don’t exist. They’re not out there in the world; they’re in here — inside our minds.</p>
-  <p>Time is another one. We live by it, measure our lives by it, stress over it, celebrate it. Yet time, too, is a construct. A way we’ve chosen to measure change. It feels like a river flowing endlessly forward, but that’s just how we’ve been taught to perceive it.</p>
-  <p>So much of reality is shaped by how we experience it. Our minds do the heavy lifting — creating order from chaos, meaning from sensation. And sometimes, that meaning is deeply personal, not universal.</p>
-  <p>It means we need humility. What we think is “true” may simply be what we’re able to perceive. And what someone else sees — even if it’s completely different — might be just as valid from where they stand.</p>
-  <p>Sometimes, when we try to share our thoughts or beliefs, others can’t see it. Not because they’re blind or stubborn — but because their lens is different. And just like a prism, truth can look like many colors depending on the angle you see it from.</p>
-  <p>We can’t force understanding. We can only share gently, with patience and love. Because not everyone is ready for certain truths — and even the wisest, like Solomon, once carried wisdom that later became a weight. When we believe too much in our own light, we can forget that we are only reflections of something greater.</p>
-  
-  <p>This reflection isn’t meant to make us doubt what we know — but to remind us to hold it with care. Not all that appears real is real. And not all that is unseen is imaginary.</p>
-  
-  <p>Sometimes, the most powerful truths are not the ones we see, but the ones we feel when we slow down, open up, and allow ourselves to look beyond the surface.</p>
-  
-  <p><strong>So next time you look at the world — or at someone else’s point of view — remember: there’s always more than meets the eye.</strong></p>
-</div>
+    <div class="reflection-container">
+      <h2>More Than Meets the Eye</h2>
+      <p>Every day, we trust our eyes. We look at the world and assume that what we see is what exists — solid, absolute, and unchanging. But what if much of what we see isn’t actually “there”? What if some of the things we believe to be real are not parts of the world, but creations of the mind?</p>
+      <p>Take color, for instance. It feels real. We see blue skies, green leaves, golden sunsets. But scientifically, color isn’t a property of objects — it’s a result of how our brains interpret light waves. Without eyes to perceive them, colors don’t exist. They’re not out there in the world; they’re in here — inside our minds.</p>
+      <p>Time is another one. We live by it, measure our our lives by it, stress over it, celebrate it. Yet time, too, is a construct. A way we’ve chosen to measure change. It feels like a river flowing endlessly forward, but that’s just how we’ve been taught to perceive it.</p>
+      <p>So much of reality is shaped by how we experience it. Our minds do the heavy lifting — creating order from chaos, meaning from sensation. And sometimes, that meaning is deeply personal, not universal.</p>
+      <p>It means we need humility. What we think is “true” may simply be what we’re able to perceive. And what someone else sees — even if it’s completely different — might be just as valid from where they stand.</p>
+      <p>Sometimes, when we try to share our thoughts or beliefs, others can’t see it. Not because they’re blind or stubborn — but because their lens is different. And just like a prism, truth can look like many colors depending on the angle you see it from.</p>
+      <p>We can’t force understanding. We can only share gently, with patience and love. Because not everyone is ready for certain truths — and even the wisest, like Solomon, once carried wisdom that later became a weight. When we believe too much in our own light, we can forget that we are only reflections of something greater.</p>
+    </div>
+  </main>
 
-</main>
-<section>
-  <div style="display: flex; justify-content: center; align-items: center; margin: 2rem 0;">
-    <iframe 
-    width="640" 
-    height="360" 
-    src="https://www.youtube.com/embed/UWlV22lYpEk?autoplay=1&loop=1&playlist=UWlV22lYpEk"
-    title="YouTube video player" 
-    frameborder="0"
-    allowfullscreen
-    style="border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.3);">
-  </iframe>
-</div>
+  <section class="media-section">
+    <iframe src="https://www.youtube.com/embed/YKqZ3FpVUDk?si=0ps7GYq80yqqGhwO"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+    </iframe>
+    <div class="fb-share-button"
+         data-href="https://stonegrillrestaurant.github.io/pages/blog2.html"
+         data-layout="button"
+         data-size="large">
+    </div>
+  </section>
 
-<div id="fb-root"></div>
+  <footer>
+    &copy; 2025 Stone Grill Restaurant
+  </footer>
 
-  <div class="fb-share-button"
-     data-href="https://stonegrillrestaurant.github.io/pages/blog2.html"
-     data-layout="button"
-     data-size="large">
-  </div>
-</section>
-  
-<footer>
-  &copy; 2025 Stone Grill Restaurant
-</footer>
-
-<script async defer crossorigin="anonymous"
-  src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v19.0">
-</script>
-
+  <div id="fb-root"></div>
+  <script async defer crossorigin="anonymous"
+    src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v19.0">
+  </script>
 </body>
 </html>
