@@ -15,30 +15,38 @@
       background: #fff8f0;
       color: #333;
     }
-    header {
-      background-color: #b22222;
-      color: white;
-      padding: 1rem 0;
-    }
-    .header-content {
-      display: flex;
-      align-items: center;
-      justify-content: flex-start;
-      gap: 15px;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
-    .logo-circle {
-      width: 50px;
-      height: 47px;
-      border-radius: 50%;
-      background-color: white;
-      padding: 2px;
-      object-fit: cover;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-    }
-    header h1 {
+    
+header {
+  background-color: #b22222;
+  color: white;
+  padding: 1rem 0;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;  /* ✅ missing semicolon fixed */
+  gap: 15px;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0px;
+}
+
+.logo-circle {
+  width: 50px;
+  height: 47px;
+  border-radius: 50%;
+  background-color: white;
+  padding: 2px;
+  object-fit: cover;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+header h1 {
+  font-size: 1.8rem;
+  margin: 0;
+}
+
       font-size: 1.8rem;
       margin: 0;
     }
@@ -67,7 +75,21 @@ nav a {
 
 nav a:hover {
   text-decoration: underline;
-}
+} 
+   .videowrapper {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    margin: 0 auto;
+    max-width: 700px; /* adjust as needed */
+  }
+  .videowrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }  
     .reflection-container {
       max-width: 800px;
       margin: 60px auto;
@@ -93,8 +115,8 @@ nav a:hover {
     }
     .media-section {
       max-width: 800px;
-      margin: 40px auto;
-      padding: 20px;
+      margin: 6px auto;
+      padding: 11px;
       text-align: center;
     }
     .media-section iframe {
@@ -118,11 +140,14 @@ nav a:hover {
 </head>
 <body>
   <header>
-    <div class="header-content">
-      <img src="/pages/images/sglogo.PNG" alt="Stone Grill Logo" class="logo-circle" />
-      <h1>Stone Grill Restaurant</h1>
-    </div>
-     <nav>
+  <div class="header-content">
+    <img src="/pages/images/sglogo.PNG" alt="Stone Grill Logo" class="logo-circle" />
+    <h1>Stone Grill Restaurant</h1>
+  </div>
+</header>
+
+  
+  <nav>
     <a href="https://stonegrillrestaurant.github.io">Home</a>
     <a href="menu.html">Menu</a>
     <a href="about.html">About</a>
@@ -130,8 +155,22 @@ nav a:hover {
     <a href="auth.html">Blog</a>
     <a href="blog2.html">Blog2</a>
   </nav>
-  </header>
-
+  
+<section class="media-section">
+    <iframe src="https://www.youtube.com/embed/UWlV22lYpEk?si=-XezROLL_4v1U9A-"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+    </iframe>
+    <div class="fb-share-button"
+         data-href="https://stonegrillrestaurant.github.io/pages/blog2.html"
+         data-layout="button"
+         data-size="large">
+    </div>
+  
+  </section>
+  
   <main>
     <div class="reflection-container">
       <h2>More Than Meets the Eye</h2>
@@ -145,19 +184,7 @@ nav a:hover {
     </div>
   </main>
 
-  <section class="media-section">
-    <iframe src="https://www.youtube.com/embed/YKqZ3FpVUDk?si=0ps7GYq80yqqGhwO"
-            title="YouTube video player"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen>
-    </iframe>
-    <div class="fb-share-button"
-         data-href="https://stonegrillrestaurant.github.io/pages/blog2.html"
-         data-layout="button"
-         data-size="large">
-    </div>
-  </section>
+ 
 
   <footer>
     &copy; 2025 Stone Grill Restaurant
