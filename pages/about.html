@@ -62,7 +62,17 @@
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
   }
    
-   .navbar {
+   @media (max-width: 400px) {
+  .nav-list a {
+    padding: 6px 8px;
+    font-size: 14px;
+  }
+
+  .hamburger {
+    font-size: 26px;
+  }
+}
+.navbar {
   background-color: #ffffe0;
   padding: 0.5rem 1rem;
 }
@@ -108,7 +118,6 @@ nav a.active,
   cursor: pointer;
   color: #b22222;
 }
-
 </style>
 </head>
 <body>
@@ -153,7 +162,36 @@ nav a.active,
   <footer>
     &copy; 2025 Stone Grill Restaurant
   </footer>
-  <script>
+<script>
+  function toggleBlogMenu() {
+    const blogMenu = document.getElementById("blogMenu");
+    blogMenu.style.display = blogMenu.style.display === "block" ? "none" : "block";
+  }
+
+  document.addEventListener("click", function (event) {
+    const blogMenu = document.getElementById("blogMenu");
+    const hamburger = document.querySelector(".hamburger");
+    if (!blogMenu.contains(event.target) && !hamburger.contains(event.target)) {
+      blogMenu.style.display = "none";
+    }
+  });
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const currentPath = window.location.pathname.split("/").pop();
+    const navLinks = document.querySelectorAll(".nav-left a");
+    const blogLinks = document.querySelectorAll("#blogMenu a");
+    const allLinks = [...navLinks, ...blogLinks];
+
+    allLinks.forEach(link => {
+      const linkPath = link.getAttribute("href").split("/").pop();
+      if (linkPath === currentPath) {
+        link.classList.add("active");
+      }
+    });
+  });
+</script>
+  
+<script>
   function toggleBlogMenu() {
     const blogMenu = document.getElementById("blogMenu");
     blogMenu.style.display = blogMenu.style.display === "block" ? "none" : "block";
