@@ -8,154 +8,144 @@
   <link href="https://fonts.googleapis.com/css2?family=Segoe+UI&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap" rel="stylesheet">
   <style>
-    /* Reset + Layout */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-body {
-  font-family: 'Segoe UI', sans-serif;
-  background: #fff8f0;
-  color: #333;
-  padding-top: 120px;
-}
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #fff8f0;
+      color: #333;
+      padding-top: 130px; /* space for fixed header and nav */
+    }
 
-/* Header */
-header {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  height: 70px;
-  background-color: #b22222;
-  color: white;
-  z-index: 1000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      height: 70px;
+      background-color: #b22222;
+      color: white;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
 
-.header-content {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 90%;
-  max-width: 1100px;
-}
+    .header-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 90%;
+      max-width: 1100px;
+    }
 
-.logo-circle {
-  width: 50px;
-  height: 47px;
-  border-radius: 50%;
-  background-color: white;
-  padding: 2px;
-  object-fit: cover;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-}
+    .logo-circle {
+      width: 50px;
+      height: 47px;
+      border-radius: 50%;
+      background-color: white;
+      padding: 2px;
+      object-fit: cover;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    }
 
-header h1 {
-  font-size: 1.8rem;
-  margin-left: 15px;
-  flex-grow: 1;
-}
+    header h1 {
+      font-size: 1.8rem;
+      margin-left: 15px;
+      flex-grow: 1;
+    }
 
-.hamburger {
-  display: none;
-  font-size: 30px;
-  cursor: pointer;
-}
+    .hamburger {
+      display: none;
+      font-size: 30px;
+      padding: 10px;
+      cursor: pointer;
+    }
 
-/* Nav */
-nav.nav-links {
-  position: fixed;
-  top: 70px;
-  width: 100%;
-  background-color: #ffcc00;
-  z-index: 999;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 20px;
-  padding: 10px 0;
-}
+    nav.nav-links {
+      position: fixed;
+      top: 70px;
+      width: 100%;
+      background-color: #ffcc00;
+      z-index: 999;
+    }
 
-nav a {
-  color: #b22222;
-  font-weight: bold;
-  text-decoration: none;
-}
+    .nav-list {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      list-style: none;
+      padding: 10px 0;
+      margin: 0;
+    }
 
-nav a:hover {
-  text-decoration: underline;
-}
+    .nav-list li {
+      position: relative;
+    }
 
-/* Dropdown */
-.dropdown {
-  position: relative;
-  display: inline-block;
-}
+    .nav-list a {
+      color: #b22222;
+      font-weight: bold;
+      text-decoration: none;
+    }
 
-.dropdown-content {
-  display: none;
-  position: absolute;
-  top: 100%;
-  background-color: #fff8f0;
-  min-width: 160px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  z-index: 1001;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
+    .nav-list a:hover {
+      text-decoration: underline;
+    }
 
-.dropdown:hover .dropdown-content {
-  display: block;
-}
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: #fff8f0;
+      min-width: 160px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      border-radius: 5px;
+      z-index: 1001;
+    }
 
-.dropdown-content a {
-  color: #b22222;
-  padding: 10px 15px;
-  display: block;
-  text-align: left;
-  text-decoration: none;
-  font-weight: normal;
-}
+    .dropdown-content li {
+      padding: 10px;
+    }
 
-.dropdown-content a:hover {
-  background-color: #ffe4b5;
-}
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
 
-/* 🔄 Responsive */
-@media (max-width: 768px) {
-  .hamburger {
-    display: block;
-  }
+    @media (max-width: 768px) {
+      .hamburger {
+        display: block;
+      }
 
-  nav.nav-links {
-    display: none;
-    flex-direction: column;
-    align-items: center;
-  }
+      .nav-list {
+        flex-direction: column;
+        display: none;
+      }
 
-  nav.nav-links.active {
-    display: flex;
-  }
+      .nav-list.active {
+        display: flex;
+      }
 
-  .dropdown-content {
-    position: static;
-    box-shadow: none;
-    border: none;
-    background-color: transparent;
-  }
+      .dropdown-content {
+        position: static;
+        box-shadow: none;
+        border: none;
+        background: none;
+      }
 
-  .dropdown:hover .dropdown-content {
-    display: none;
-  }
+      .dropdown:hover .dropdown-content {
+        display: none;
+      }
 
-  .dropdown-content a {
-    padding: 8px;
-  }
+      .dropdown-content li {
+        padding: 8px;
+      }
+    }
 
     .media-section {
       max-width: 800px;
@@ -171,10 +161,6 @@ nav a:hover {
       border-radius: 8px;
       margin-bottom: 20px;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    }
-
-    .fb-share-button {
-      margin-top: 10px;
     }
 
     .reflection-container {
@@ -210,50 +196,35 @@ nav a:hover {
       padding: 1rem;
       margin-top: 40px;
     }
-
-      header h1 {
-        font-size: 1.5rem;
-      }
-
-      nav {
-        flex-direction: column;
-        gap: 10px;
-        height: auto;
-        padding: 10px 0;
-      }
-    }
   </style>
 </head>
 <body>
-  <header>
-  <div class="header-content">
-    <a href="https://facebook.com/stonecitygrill" target="_blank">
-      <img src="/pages/images/sglogo.PNG" alt="Stone Grill Logo" class="logo-circle" />
-    </a>
-    <h1>Stone Grill Restaurant</h1>
-  </div>
-</header>
 
-<nav>
-  <div class="menu-toggle" id="menu-toggle">
-    <div class="bar"></div>
-    <div class="bar"></div>
-    <div class="bar"></div>
-  </div>
-  <ul id="menu" class="nav-list">
-    <li><a href="https://stonegrillrestaurant.github.io">Home</a></li>
-    <li><a href="pages/menu.html">Menu</a></li>
-    <li><a href="pages/about.html">About</a></li>
-    <li><a href="pages/contact.html">Contact</a></li>
-    <li class="dropdown">
-      <a href="#">Blog ▼</a>
-      <div class="dropdown-content">
-        <a href="pages/auth.html">Blog 1</a>
-        <a href="pages/blog2.html">Blog 2</a>
-      </div>
-    </li>
-  </ul>
-</nav>
+  <header>
+    <div class="header-content">
+      <a href="https://facebook.com/stonecitygrill" target="_blank">
+        <img src="/pages/images/sglogo.PNG" alt="Stone Grill Logo" class="logo-circle" />
+      </a>
+      <h1>Stone Grill Restaurant</h1>
+      <div class="hamburger" onclick="toggleMenu()">☰</div>
+    </div>
+  </header>
+
+  <nav class="nav-links">
+    <ul class="nav-list" id="main-nav">
+      <li><a href="https://stonegrillrestaurant.github.io">Home</a></li>
+      <li><a href="menu.html">Menu</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li class="dropdown">
+        <a href="#">Blog ▼</a>
+        <ul class="dropdown-content">
+          <li><a href="auth.html">Blog 1</a></li>
+          <li><a href="blog2.html">Blog 2</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
 
   <section class="media-section">
     <iframe src="https://www.youtube.com/embed/UWlV22lYpEk?si=-XezROLL_4v1U9A-"
@@ -262,23 +233,13 @@ nav a:hover {
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen>
     </iframe>
-    <div class="fb-share-button"
-         data-href="https://stonegrillrestaurant.github.io/pages/blog2.html"
-         data-layout="button"
-         data-size="large">
-    </div>
   </section>
 
   <main>
     <div class="reflection-container">
       <h2>More Than Meets the Eye</h2>
-      <p>Every day, we trust our eyes. We look at the world and assume that what we see is what exists — solid, absolute, and unchanging. But what if much of what we see isn’t actually “there”? What if some of the things we believe to be real are not parts of the world, but creations of the mind?</p>
-      <p>Take color, for instance. It feels real. We see blue skies, green leaves, golden sunsets. But scientifically, color isn’t a property of objects — it’s a result of how our brains interpret light waves. Without eyes to perceive them, colors don’t exist. They’re not out there in the world; they’re in here — inside our minds.</p>
-      <p>Time is another one. We live by it, measure our lives by it, stress over it, celebrate it. Yet time, too, is a construct. A way we’ve chosen to measure change. It feels like a river flowing endlessly forward, but that’s just how we’ve been taught to perceive it.</p>
-      <p>So much of reality is shaped by how we experience it. Our minds do the heavy lifting — creating order from chaos, meaning from sensation. And sometimes, that meaning is deeply personal, not universal.</p>
-      <p>It means we need humility. What we think is “true” may simply be what we’re able to perceive. And what someone else sees — even if it’s completely different — might be just as valid from where they stand.</p>
-      <p>Sometimes, when we try to share our thoughts or beliefs, others can’t see it. Not because they’re blind or stubborn — but because their lens is different. And just like a prism, truth can look like many colors depending on the angle you see it from.</p>
-      <p>We can’t force understanding. We can only share gently, with patience and love. Because not everyone is ready for certain truths — and even the wisest, like Solomon, once carried wisdom that later became a weight. When we believe too much in our own light, we can forget that we are only reflections of something greater.</p>
+      <p>Every day, we trust our eyes. We look at the world and assume that what we see is what exists — solid, absolute, and unchanging...</p>
+      <!-- Add more reflection text here -->
     </div>
   </main>
 
@@ -286,15 +247,11 @@ nav a:hover {
     &copy; 2025 Stone Grill Restaurant
   </footer>
 
-  <div id="fb-root"></div>
-  <script async defer crossorigin="anonymous"
-    src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v19.0">
+  <script>
+    function toggleMenu() {
+      document.getElementById("main-nav").classList.toggle("active");
+    }
   </script>
-<script>
-  function toggleMenu() {
-    const nav = document.getElementById('main-nav');
-    nav.classList.toggle('active');
-  }
-</script>
+
 </body>
 </html>
