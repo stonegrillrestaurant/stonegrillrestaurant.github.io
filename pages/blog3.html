@@ -40,6 +40,7 @@
       justify-content: space-between;
       width: 90%;
       max-width: 1100px;
+      padding: 0 15px; /* Added padding for smaller screens */
     }
 
     .logo-circle {
@@ -56,13 +57,15 @@
       font-size: 1.8rem;
       margin-left: 15px;
       flex-grow: 1;
+      text-align: center; /* Center the title on smaller screens */
     }
 
     .hamburger {
-      display: none;
+      display: none; /* Hidden by default, shown on mobile */
       font-size: 30px;
       padding: 10px;
       cursor: pointer;
+      color: white; /* Ensure visibility */
     }
 
     nav.nav-links {
@@ -71,6 +74,7 @@
       width: 100%;
       background-color: #ffcc00;
       z-index: 999;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Added subtle shadow */
     }
 
     .nav-list {
@@ -91,6 +95,8 @@
       color: #b22222;
       font-weight: bold;
       text-decoration: none;
+      padding: 8px 12px; /* Added padding for better click area */
+      display: block; /* Make the whole link clickable */
     }
 
     .nav-list a:hover {
@@ -107,43 +113,85 @@
       box-shadow: 0 4px 8px rgba(0,0,0,0.1);
       border-radius: 5px;
       z-index: 1001;
+      list-style: none; /* Remove list bullets */
+      padding: 0; /* Remove default padding */
     }
 
     .dropdown-content li {
+      padding: 0; /* Reset padding for list items inside dropdown */
+    }
+
+    .dropdown-content a {
+      color: #b22222;
       padding: 10px;
+      text-decoration: none;
+      display: block;
+      white-space: nowrap; /* Prevent wrapping for dropdown items */
+    }
+
+    .dropdown-content a:hover {
+      background-color: #ffe680; /* Lighter yellow on hover */
     }
 
     .dropdown:hover .dropdown-content {
       display: block;
     }
 
+    /* Mobile Styles */
     @media (max-width: 768px) {
+      .header-content h1 {
+        font-size: 1.5rem; /* Smaller title on mobile */
+        margin-left: 10px;
+      }
+
       .hamburger {
-        display: block;
+        display: block; /* Show hamburger on mobile */
       }
 
       .nav-list {
         flex-direction: column;
-        display: none;
+        align-items: flex-start; /* Align items to the left in column layout */
+        display: none; /* Hidden by default on mobile */
+        padding: 0; /* Remove padding */
+        width: 100%; /* Take full width */
       }
 
       .nav-list.active {
-        display: flex;
+        display: flex; /* Show when active */
+      }
+
+      .nav-list li {
+        width: 100%; /* Full width for list items */
+        text-align: center; /* Center text within mobile menu items */
+        border-bottom: 1px solid rgba(0,0,0,0.1); /* Separator for mobile menu items */
+      }
+
+      .nav-list li:last-child {
+        border-bottom: none; /* No separator for the last item */
+      }
+
+      .nav-list a {
+        padding: 15px 0; /* More vertical padding for mobile links */
       }
 
       .dropdown-content {
-        position: static;
-        box-shadow: none;
-        border: none;
-        background: none;
+        position: static; /* Allows it to flow within the mobile menu */
+        box-shadow: none; /* No shadow in mobile */
+        border: none; /* No border in mobile */
+        background-color: #fff8f0; /* Match background for consistency */
+        width: 100%; /* Full width */
+        padding-left: 20px; /* Indent dropdown items */
       }
 
-      .dropdown:hover .dropdown-content {
-        display: none;
+      /* Fix for dropdown in mobile */
+      .dropdown:hover .dropdown-content,
+      .dropdown.active .dropdown-content { /* Add active class for dropdown toggle */
+        display: flex; /* Display as flex column for dropdown items in mobile */
+        flex-direction: column;
       }
 
-      .dropdown-content li {
-        padding: 8px;
+      .dropdown-content a {
+        padding: 10px 0 10px 30px; /* Adjust padding for nested dropdown items */
       }
     }
 
@@ -162,6 +210,19 @@
       margin-bottom: 20px;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     }
+
+    /* Ensure video scales down properly on smaller screens */
+    @media (max-width: 600px) {
+      .media-section iframe {
+        height: 250px; /* Adjust height for smaller screens */
+      }
+    }
+    @media (max-width: 400px) {
+      .media-section iframe {
+        height: 180px; /* Further adjust height for very small screens */
+      }
+    }
+
 
     .reflection-container {
       max-width: 800px;
@@ -217,7 +278,7 @@
       <li><a href="about.html">About</a></li>
       <li><a href="contact.html">Contact</a></li>
       <li class="dropdown">
-        <a href="#">Blog ▼</a>
+        <a href="#" onclick="toggleDropdown(event)">Blog ▼</a>
         <ul class="dropdown-content">
           <li><a href="auth.html">Blog 1</a></li>
           <li><a href="blog2.html">Blog 2</a></li>
@@ -227,7 +288,7 @@
   </nav>
 
   <section class="media-section">
-    <iframe src="https://www.youtube.com/embed/UWlV22lYpEk?si=-XezROLL_4v1U9A-"
+    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ"
             title="YouTube video player"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -238,19 +299,67 @@
   <main>
     <div class="reflection-container">
       <h2>More Than Meets the Eye</h2>
-      <p>Every day, we trust our eyes. We look at the world and assume that what we see is what exists — solid, absolute, and unchanging...</p>
-      <!-- Add more reflection text here -->
+      <p>Every day, we trust our eyes. We look at the world and assume that what we see is what exists — solid, absolute, and unchanging. Yet, beneath the surface of the visible, a vibrant, complex reality constantly shifts and unfolds. In the culinary world, this truth is particularly profound. A dish isn't just a plate of ingredients; it's a symphony of flavors, a journey of textures, and a canvas of aromas that delight more than just the taste buds.</p>
+
+      <p>At Stone Grill Restaurant, we embrace this philosophy. Our commitment extends beyond merely serving food; we aim to create an experience. The sizzle of our signature hot stones isn't just a sound; it's an invitation to engage all your senses. The aroma of perfectly seared meats and vegetables isn't just a smell; it's a prelude to the rich, earthy flavors that await. Each ingredient is carefully selected, not just for its appearance, but for the story it tells, the terroir it represents, and the unique contribution it makes to the overall harmony of the meal.</p>
+
+      <p>Consider the humble steak, for instance. To the untrained eye, it might simply be a cut of beef. But for us, it's a testament to careful aging, precise marbling, and expert preparation. When it arrives at your table, still cooking on the volcanic stone, it transforms from a static object into an interactive culinary event. You control the doneness, personalizing your meal in a way traditional dining cannot. This act of participation deepens your connection to the food, revealing layers of appreciation that extend beyond a simple bite.</p>
+
+      <p>Our dedication to quality, from the sourcing of our produce to the warmth of our hospitality, is all part of this unseen dimension. We believe that true dining pleasure comes from an understanding that every element, no matter how small, plays a crucial role. It’s in the subtle interplay of spices, the nuanced char of the stone, the gentle hum of conversation, and the feeling of warmth and welcome that surrounds you. So, the next time you dine with us, we invite you to look a little closer, taste a little deeper, and discover that at Stone Grill, there is truly more than meets the eye.</p>
     </div>
   </main>
 
   <footer>
-    &copy; 2025 Stone Grill Restaurant
+    © 2025 Stone Grill Restaurant
   </footer>
 
   <script>
     function toggleMenu() {
-      document.getElementById("main-nav").classList.toggle("active");
+      const navList = document.getElementById("main-nav");
+      navList.classList.toggle("active");
+
+      // Close dropdowns when main menu is toggled
+      const dropdowns = document.querySelectorAll('.dropdown.active');
+      dropdowns.forEach(dropdown => {
+        dropdown.classList.remove('active');
+      });
     }
+
+    function toggleDropdown(event) {
+      // Prevent the default link behavior
+      event.preventDefault();
+
+      // Get the parent dropdown element
+      const dropdownParent = event.target.closest('.dropdown');
+
+      // Toggle the 'active' class on the dropdown parent
+      if (dropdownParent) {
+        dropdownParent.classList.toggle('active');
+      }
+    }
+
+    // Close the mobile menu and dropdowns when resizing to desktop
+    window.addEventListener('resize', () => {
+      const navList = document.getElementById("main-nav");
+      if (window.innerWidth > 768) {
+        navList.classList.remove("active");
+        const dropdowns = document.querySelectorAll('.dropdown.active');
+        dropdowns.forEach(dropdown => {
+          dropdown.classList.remove('active');
+        });
+      }
+    });
+
+    // Close the dropdowns if clicking outside on mobile
+    document.addEventListener('click', function(event) {
+      const dropdowns = document.querySelectorAll('.dropdown.active');
+      dropdowns.forEach(dropdown => {
+        if (!dropdown.contains(event.target) && window.innerWidth <= 768) {
+          dropdown.classList.remove('active');
+        }
+      });
+    });
+
   </script>
 
 </body>
