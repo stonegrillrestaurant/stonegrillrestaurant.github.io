@@ -186,6 +186,28 @@ header h1 {
       margin-bottom: 16px;
       text-align: justify;
     }
+    @keyframes flame-glow {
+  0% {
+    box-shadow: 0 0 5px #ffcc00, 0 0 10px #ff9900, 0 0 15px #ff6600;
+  }
+  50% {
+    box-shadow: 0 0 8px #ffaa00, 0 0 14px #ff7700, 0 0 20px #ff3300;
+  }
+  100% {
+    box-shadow: 0 0 5px #ffcc00, 0 0 10px #ff9900, 0 0 15px #ff6600;
+  }
+}
+
+nav a.active,
+#blogMenu a.active {
+  color: #fff;
+  font-weight: bold;
+  background-color: #b22222; /* or #000 for dark nav */
+  border-radius: 6px;
+  padding: 5px 10px;
+  animation: flame-glow 1.5s infinite ease-in-out;
+  transition: background-color 0.3s;
+}
 
     footer {
       background: #b22222;
@@ -274,6 +296,22 @@ header h1 {
     }
   });
 </script>
+    <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const currentPath = window.location.pathname.split("/").pop();
 
+    const navLinks = document.querySelectorAll("nav > a");
+    const blogLinks = document.querySelectorAll("#blogMenu a");
+    const allLinks = [...navLinks, ...blogLinks];
+
+    allLinks.forEach(link => {
+      const linkPath = link.getAttribute("href").split("/").pop();
+      if (linkPath === currentPath) {
+        link.classList.add("active");
+      }
+    });
+        });
+      </script>
+  
 </body>
 </html>
