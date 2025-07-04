@@ -8,7 +8,11 @@
   <link href="https://fonts.googleapis.com/css2?family=Segoe+UI&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap" rel="stylesheet">
   <style>
- 
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
@@ -55,8 +59,7 @@ header h1 {
   text-align: center;
   flex-grow: 1;
 }
-
-/* Yellow nav under red */
+/* Yellow horizontal nav */
 .main-nav {
   position: fixed;
   top: 70px;
@@ -65,31 +68,39 @@ header h1 {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 20px;
+  padding: 0 10px;
   z-index: 999;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  flex-wrap: nowrap;
+  overflow-x: auto;
 }
 
+/* nav list always visible and doesn't push hamburger */
 .nav-list {
   display: flex;
   list-style: none;
   margin: 0;
   padding: 10px 0;
-  gap: 20px;
+  gap: 15px;
+  flex-shrink: 1;
+  overflow-x: auto;
 }
 
 .nav-list li a {
   text-decoration: none;
   color: #b22222;
   font-weight: bold;
+  white-space: nowrap;
   padding: 8px 12px;
 }
 
-/* Hamburger aligned right inside yellow nav */
+/* hamburger icon stays fixed to right */
 .hamburger {
-  font-size: 30px;
+  font-size: 28px;
   cursor: pointer;
   color: #b22222;
+  flex-shrink: 0;
+  margin-left: auto;
 }
 
 /* Blog menu dropdown */
@@ -120,6 +131,7 @@ header h1 {
   color: #b22222;
   font-weight: bold;
 }
+    
     .media-section {
       max-width: 800px;
       margin: 0 auto;
@@ -136,23 +148,22 @@ header h1 {
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     }
 
-   .videowrapper {
-    position: relative;
-    width: 100%;
-    padding-bottom: 56.25%; /* 16:9 aspect ratio */
-    margin: 0 auto;
-    max-width: 700px; /* adjust as needed */
-  }
-  .videowrapper iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-  }  
+    /* Ensure video scales down properly on smaller screens */
+    @media (max-width: 600px) {
+      .media-section iframe {
+        height: 250px; /* Adjust height for smaller screens */
+      }
+    }
+    @media (max-width: 400px) {
+      .media-section iframe {
+        height: 180px; /* Further adjust height for very small screens */
+      }
+    }
+
+
     .reflection-container {
       max-width: 800px;
-      margin: 60px auto;
+      margin: 30px auto;
       padding: 30px;
       background-color: #fff8f0;
       border: 1px solid #e2d4c5;
@@ -162,6 +173,7 @@ header h1 {
       color: #3b2f2f;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
     }
+
     .reflection-container h2 {
       font-size: 28px;
       margin-bottom: 20px;
@@ -169,33 +181,29 @@ header h1 {
       color: #993333;
       font-weight: normal;
     }
+
     .reflection-container p {
       margin-bottom: 16px;
       text-align: justify;
     }
-    .media-section {
-      max-width: 800px;
-      margin: 6px auto;
-      padding: 11px;
-      text-align: center;
-    }
-    .media-section iframe {
-      width: 100%;
-      max-width: 640px;
-      height: 360px;
-      border-radius: 8px;
-      margin-bottom: 20px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    }
-    .fb-share-button {
-      margin-top: 10px;
-    }
+
     footer {
       background: #b22222;
       color: white;
       text-align: center;
       padding: 1rem;
+      margin-top: 40px;
     }
+    @media (max-width: 400px) {
+  .nav-list a {
+    padding: 6px 8px;
+    font-size: 14px;
+  }
+
+  .hamburger {
+    font-size: 26px;
+  }
+}
   </style>
 </head>
 <body>
