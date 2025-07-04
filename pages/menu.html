@@ -53,6 +53,44 @@
     text-decoration: underline;
   }
 
+/* hamburger icon stays fixed to right */
+.hamburger {
+  font-size: 28px;
+  cursor: pointer;
+  color: #b22222;
+  flex-shrink: 0;
+  margin-left: auto;
+}
+
+/* Blog menu dropdown */
+.blog-menu {
+  display: none;
+  position: absolute;
+  top: 110px;
+  right: 20px;
+  background-color: #ffe680;
+  border: 1px solid #b22222;
+  border-radius: 5px;
+  padding: 10px;
+  z-index: 1001;
+}
+
+.blog-menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.blog-menu li {
+  margin: 10px 0;
+}
+
+.blog-menu a {
+  text-decoration: none;
+  color: #b22222;
+  font-weight: bold;
+}
+    
   .container {
     padding: 1rem;
     max-width: 750px;
