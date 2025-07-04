@@ -16,6 +16,95 @@
         <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
+        
+          <style>
+    .masthead {
+      position: relative;
+      background-image: url('https://stonegrillrestaurant.github.io/pages/images/IMG1.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      padding: 0 1rem; /* responsive horizontal padding */
+    }
+
+    .masthead::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 1;
+    }
+
+    .masthead .container {
+      position: relative;
+      z-index: 2;
+      max-width: 90%;
+      width: 100%;
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+    }
+
+    .masthead-logo {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      background-color: white;
+      object-fit: cover;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+      transition: transform 0.3s ease;
+    }
+
+    .masthead-logo:hover {
+      transform: scale(1.05);
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin: 0.5rem 0;
+    }
+
+    h3 {
+      font-size: 1.2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .btn {
+      padding: 0.8rem 1.5rem;
+      font-size: 1rem;
+    }
+
+    @media (max-width: 600px) {
+      .masthead {
+        height: auto;
+        padding: 2rem 1rem;
+      }
+
+      .masthead-logo {
+        width: 60px;
+        height: 60px;
+      }
+
+      h1 {
+        font-size: 1.5rem;
+      }
+
+      h3 {
+        font-size: 1rem;
+      }
+
+      .btn {
+        font-size: 0.9rem;
+        padding: 0.6rem 1.2rem;
+      }
+    }
+  </style>
+        
     </head>
     <body id="page-top">
         <!-- Navigation-->
@@ -31,13 +120,16 @@
             </ul>
         </nav>
         <!-- Header-->
-        <header class="masthead d-flex align-items-center">
-            <div class="container px-7 px-lg-4 text-center">
-                <h1 class="mb-1"> </h1>
-                <h3 class="mb-5"><em> </em></h3>
-                <a class="btn btn-primary btn-xl" href="https://stonegrillrestaurant.github.io/pages/menu.html">Get Started</a>
-            </div>
-        </header>
+        <header class="masthead">
+    <div class="container">
+      <a href="https://www.facebook.com/stonecitygrill" target="_blank">
+        <img src="https://stonegrillrestaurant.github.io/pages/images/sglogo.PNG" alt="Stone Grill Logo" class="masthead-logo">
+      </a>
+      <h1> </h1>
+      <h3><em>Reverence in every dish</em></h3>
+      <a class="btn btn-primary btn-xl" href="https://stonegrillrestaurant.github.io/pages/blog2.html">Get Started</a>
+    </div>
+  </header>
         <footer class="footer text-center">
             <div class="container px-4 px-lg-5">
                 <ul class="list-inline mb-5">
