@@ -196,5 +196,20 @@
        alt="Share on Facebook" width="40">
        </a>
   </footer>
+  
+<script>
+  function toggleBlogMenu() {
+    const blogMenu = document.getElementById("blogMenu");
+    blogMenu.style.display = blogMenu.style.display === "block" ? "none" : "block";
+  }
+
+  document.addEventListener("click", function (event) {
+    const blogMenu = document.getElementById("blogMenu");
+    const hamburger = document.querySelector(".hamburger");
+    if (!blogMenu.contains(event.target) && !hamburger.contains(event.target)) {
+      blogMenu.style.display = "none";
+    }
+  });
+</script>
 </body>
 </html>
