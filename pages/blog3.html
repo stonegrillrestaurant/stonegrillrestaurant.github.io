@@ -18,26 +18,27 @@
       font-family: 'Segoe UI', sans-serif;
       background: #fff8f0;
       color: #333;
-      padding-top: 140px; /* space for fixed header + nav */
+      padding-top: 120px; /* Room for fixed header + nav */
     }
 
     header {
       position: fixed;
       top: 0;
       width: 100%;
+      height: 70px;
       background-color: #b22222;
       color: white;
-      padding: 1rem 0;
       z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .header-content {
       display: flex;
       align-items: center;
-      justify-content: center;
       gap: 15px;
       max-width: 800px;
-      margin: 0 auto;
     }
 
     .logo-circle {
@@ -55,29 +56,22 @@
       margin: 0;
     }
 
-    @media (max-width: 600px) {
-      .header-content {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-      }
-      header h1 {
-        font-size: 1.5rem;
-      }
-    }
-
     nav {
       position: fixed;
       top: 70px;
       width: 100%;
+      height: 50px;
       background-color: #ffcc00;
       padding: 0.5rem 0;
       text-align: center;
       z-index: 999;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
     }
 
     nav a {
-      margin: 0 1rem;
       color: #b22222;
       font-weight: bold;
       text-decoration: none;
@@ -90,7 +84,7 @@
     .media-section {
       max-width: 800px;
       margin: 0 auto;
-      padding: 0;
+      padding: 10px 20px;
       text-align: center;
     }
 
@@ -140,9 +134,29 @@
       padding: 1rem;
       margin-top: 40px;
     }
+
+    @media (max-width: 600px) {
+      .header-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      header h1 {
+        font-size: 1.5rem;
+      }
+
+      nav {
+        flex-direction: column;
+        gap: 10px;
+        height: auto;
+        padding: 10px 0;
+      }
+    }
   </style>
 </head>
 <body>
+
   <header>
     <div class="header-content">
       <img src="/pages/images/sglogo.PNG" alt="Stone Grill Logo" class="logo-circle" />
@@ -157,7 +171,6 @@
     <a href="contact.html">Contact</a>
     <a href="auth.html">Blog</a>
     <a href="blog2.html">Blog2</a>
-    <a href="blog3.html">Blog3</a>
   </nav>
 
   <section class="media-section">
@@ -177,8 +190,13 @@
   <main>
     <div class="reflection-container">
       <h2>More Than Meets the Eye</h2>
-      <p>Every day, we trust our eyes. We look at the world and assume that what we see is what exists — solid, absolute, and unchanging...</p>
-      <!-- remaining paragraphs -->
+      <p>Every day, we trust our eyes. We look at the world and assume that what we see is what exists — solid, absolute, and unchanging. But what if much of what we see isn’t actually “there”? What if some of the things we believe to be real are not parts of the world, but creations of the mind?</p>
+      <p>Take color, for instance. It feels real. We see blue skies, green leaves, golden sunsets. But scientifically, color isn’t a property of objects — it’s a result of how our brains interpret light waves. Without eyes to perceive them, colors don’t exist. They’re not out there in the world; they’re in here — inside our minds.</p>
+      <p>Time is another one. We live by it, measure our lives by it, stress over it, celebrate it. Yet time, too, is a construct. A way we’ve chosen to measure change. It feels like a river flowing endlessly forward, but that’s just how we’ve been taught to perceive it.</p>
+      <p>So much of reality is shaped by how we experience it. Our minds do the heavy lifting — creating order from chaos, meaning from sensation. And sometimes, that meaning is deeply personal, not universal.</p>
+      <p>It means we need humility. What we think is “true” may simply be what we’re able to perceive. And what someone else sees — even if it’s completely different — might be just as valid from where they stand.</p>
+      <p>Sometimes, when we try to share our thoughts or beliefs, others can’t see it. Not because they’re blind or stubborn — but because their lens is different. And just like a prism, truth can look like many colors depending on the angle you see it from.</p>
+      <p>We can’t force understanding. We can only share gently, with patience and love. Because not everyone is ready for certain truths — and even the wisest, like Solomon, once carried wisdom that later became a weight. When we believe too much in our own light, we can forget that we are only reflections of something greater.</p>
     </div>
   </main>
 
@@ -190,5 +208,6 @@
   <script async defer crossorigin="anonymous"
     src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v19.0">
   </script>
+
 </body>
 </html>
