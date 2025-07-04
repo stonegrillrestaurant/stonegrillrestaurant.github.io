@@ -69,7 +69,7 @@
     }
 
     nav.nav-links {
-      position: fixed;
+      position: absolute;
       top: 70px;
       width: 100%;
       background-color: #ffcc00;
@@ -260,17 +260,16 @@
   </style>
 </head>
 <body>
+<header>
+  <div class="header-content">
+    <a href="https://facebook.com/stonecitygrill" target="_blank">
+      <img src="/pages/images/sglogo.PNG" alt="Stone Grill Logo" class="logo-circle" />
+    </a>
+    <h1>Stone Grill Restaurant</h1>
+    <div class="hamburger" onclick="toggleMenu()">☰</div>
+  </div>
 
-  <header>
-    <div class="header-content">
-      <a href="https://facebook.com/stonecitygrill" target="_blank">
-        <img src="/pages/images/sglogo.PNG" alt="Stone Grill Logo" class="logo-circle" />
-      </a>
-      <h1>Stone Grill Restaurant</h1>
-      <div class="hamburger" onclick="toggleMenu()">☰</div>
-    </div>
-  </header>
-
+  <!-- 🟡 Yellow Navigation Menu -->
   <nav class="nav-links">
     <ul class="nav-list" id="main-nav">
       <li><a href="https://stonegrillrestaurant.github.io">Home</a></li>
@@ -281,11 +280,13 @@
         <a href="#" onclick="toggleDropdown(event)">Blog ▼</a>
         <ul class="dropdown-content">
           <li><a href="auth.html">Blog 1</a></li>
-          <li><a href="blog2.html">Blog 2</a></li>
+          <li><a href="blog2.html">Blog  2</a></li>
+              <li><a href="blog3.html">Blog  3</a></li>
         </ul>
       </li>
     </ul>
   </nav>
+</header>
 
   <section class="media-section">
     <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ"
