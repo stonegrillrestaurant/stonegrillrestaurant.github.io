@@ -46,36 +46,164 @@ header h1 {
   font-size: 1.8rem;
   margin: 0;
 }
-
+    header h1 {
       font-size: 1.8rem;
+      margin-left: 15px;
+      flex-grow: 1;
+      text-align: center; /* Center the title on smaller screens */
+    }
+
+    .hamburger {
+      display: none; /* Hidden by default, shown on mobile */
+      font-size: 30px;
+      padding: 10px;
+      cursor: pointer;
+      color: white; /* Ensure visibility */
+    }
+
+    nav.nav-links {
+      position: fixed;
+      top: 70px;
+      width: 100%;
+      background-color: #ffcc00;
+      z-index: 999;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Added subtle shadow */
+    }
+
+    .nav-list {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      list-style: none;
+      padding: 10px 0;
       margin: 0;
     }
-    @media (max-width: 600px) {
-      .header-content {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
+
+    .nav-list li {
+      position: relative;
+    }
+
+    .nav-list a {
+      color: #b22222;
+      font-weight: bold;
+      text-decoration: none;
+      padding: 8px 12px; /* Added padding for better click area */
+      display: block; /* Make the whole link clickable */
+    }
+
+    .nav-list a:hover {
+      text-decoration: underline;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: #fff8f0;
+      min-width: 160px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      border-radius: 5px;
+      z-index: 1001;
+      list-style: none; /* Remove list bullets */
+      padding: 0; /* Remove default padding */
+    }
+
+    .dropdown-content li {
+      padding: 0; /* Reset padding for list items inside dropdown */
+    }
+
+    .dropdown-content a {
+      color: #b22222;
+      padding: 10px;
+      text-decoration: none;
+      display: block;
+      white-space: nowrap; /* Prevent wrapping for dropdown items */
+    }
+
+    .dropdown-content a:hover {
+      background-color: #ffe680; /* Lighter yellow on hover */
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    /* Mobile Styles */
+    @media (max-width: 768px) {
+      .header-content h1 {
+        font-size: 1.5rem; /* Smaller title on mobile */
+        margin-left: 10px;
       }
-      header h1 {
-        font-size: 1.5rem;
+
+      .hamburger {
+        display: block; /* Show hamburger on mobile */
+      }
+
+      .nav-list {
+        flex-direction: column;
+        align-items: flex-start; /* Align items to the left in column layout */
+        display: none; /* Hidden by default on mobile */
+        padding: 0; /* Remove padding */
+        width: 100%; /* Take full width */
+      }
+
+      .nav-list.active {
+        display: flex; /* Show when active */
+      }
+
+      .nav-list li {
+        width: 100%; /* Full width for list items */
+        text-align: center; /* Center text within mobile menu items */
+        border-bottom: 1px solid rgba(0,0,0,0.1); /* Separator for mobile menu items */
+      }
+
+      .nav-list li:last-child {
+        border-bottom: none; /* No separator for the last item */
+      }
+
+      .nav-list a {
+        padding: 15px 0; /* More vertical padding for mobile links */
+      }
+
+      .dropdown-content {
+        position: static; /* Allows it to flow within the mobile menu */
+        box-shadow: none; /* No shadow in mobile */
+        border: none; /* No border in mobile */
+        background-color: #fff8f0; /* Match background for consistency */
+        width: 100%; /* Full width */
+        padding-left: 20px; /* Indent dropdown items */
+      }
+
+      /* Fix for dropdown in mobile */
+      .dropdown:hover .dropdown-content,
+      .dropdown.active .dropdown-content { /* Add active class for dropdown toggle */
+        display: flex; /* Display as flex column for dropdown items in mobile */
+        flex-direction: column;
+      }
+
+      .dropdown-content a {
+        padding: 10px 0 10px 30px; /* Adjust padding for nested dropdown items */
       }
     }
-    nav {
-  background-color: #ffcc00;
-  padding: 0.5rem;
-  text-align: center;
-}
 
-nav a {
-  margin: 0 1rem;
-  color: #b22222;
-  font-weight: bold;
-  text-decoration: none;
-}
+    .media-section {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 10px 20px;
+      text-align: center;
+    }
 
-nav a:hover {
-  text-decoration: underline;
-} 
+    .media-section iframe {
+      width: 100%;
+      max-width: 640px;
+      height: 360px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
    .videowrapper {
     position: relative;
     width: 100%;
