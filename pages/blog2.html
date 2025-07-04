@@ -268,9 +268,19 @@ header h1 {
     &copy; 2025 Stone Grill Restaurant
   </footer>
 
-  <div id="fb-root"></div>
-  <script async defer crossorigin="anonymous"
-    src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v19.0">
-  </script>
+<script>
+  function toggleBlogMenu() {
+    const blogMenu = document.getElementById("blogMenu");
+    blogMenu.style.display = blogMenu.style.display === "block" ? "none" : "block";
+  }
+
+  document.addEventListener("click", function (event) {
+    const blogMenu = document.getElementById("blogMenu");
+    const hamburger = document.querySelector(".hamburger");
+    if (!blogMenu.contains(event.target) && !hamburger.contains(event.target)) {
+      blogMenu.style.display = "none";
+    }
+  });
+</script>
 </body>
 </html>
