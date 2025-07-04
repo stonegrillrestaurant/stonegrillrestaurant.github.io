@@ -204,6 +204,53 @@ header h1 {
     font-size: 26px;
   }
 }
+    .navbar {
+  background-color: #ffffe0;
+  padding: 0.5rem 1rem;
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.nav-left a {
+  color: #b22222;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+/* 🔥 Glowing active page effect */
+@keyframes flame-glow {
+  0% {
+    box-shadow: 0 0 5px #ffcc00, 0 0 10px #ff9900, 0 0 15px #ff6600;
+  }
+  50% {
+    box-shadow: 0 0 8px #ffaa00, 0 0 14px #ff7700, 0 0 20px #ff3300;
+  }
+  100% {
+    box-shadow: 0 0 5px #ffcc00, 0 0 10px #ff9900, 0 0 15px #ff6600;
+  }
+}
+
+nav a.active,
+#blogMenu a.active {
+  color: #fff;
+  background-color: #b22222;
+  border-radius: 6px;
+  padding: 5px 10px;
+  font-weight: bold;
+  animation: flame-glow 1.5s infinite ease-in-out;
+  transition: background-color 0.3s;
+}
+
+.hamburger {
+  font-size: 28px;
+  cursor: pointer;
+  color: #b22222;
+}
+
   </style>
 </head>
 <body>
@@ -216,15 +263,16 @@ header h1 {
   </div>
 </header>
 
-<nav class="main-nav">
-  <ul class="nav-list">
-    <li><a href="https://stonegrillrestaurant.github.io">Home</a></li>
-    <li><a href="menu.html">Menu</a></li>
-    <li><a href="about.html">About</a></li>
-    <li><a href="contact.html">Contact</a></li>
-  </ul>
-  <div class="hamburger" onclick="toggleBlogMenu()">☰</div>
+<nav class="navbar">
+  <div class="nav-left">
+    <div class="hamburger" onclick="toggleBlogMenu()">☰</div>
+    <a href="https://stonegrillrestaurant.github.io">Home</a>
+    <a href="menu.html">Menu</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </div>
 </nav>
+
 
 <div class="blog-menu" id="blogMenu">
   <ul>
@@ -333,5 +381,34 @@ This belief kept people mentally and emotionally stable. It helped them face the
     }
   });
 </script>
+  <script>
+  function toggleBlogMenu() {
+    const blogMenu = document.getElementById("blogMenu");
+    blogMenu.style.display = blogMenu.style.display === "block" ? "none" : "block";
+  }
+
+  document.addEventListener("click", function (event) {
+    const blogMenu = document.getElementById("blogMenu");
+    const hamburger = document.querySelector(".hamburger");
+    if (!blogMenu.contains(event.target) && !hamburger.contains(event.target)) {
+      blogMenu.style.display = "none";
+    }
+  });
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const currentPath = window.location.pathname.split("/").pop();
+    const navLinks = document.querySelectorAll(".nav-left a");
+    const blogLinks = document.querySelectorAll("#blogMenu a");
+    const allLinks = [...navLinks, ...blogLinks];
+
+    allLinks.forEach(link => {
+      const linkPath = link.getAttribute("href").split("/").pop();
+      if (linkPath === currentPath) {
+        link.classList.add("active");
+      }
+    });
+  });
+</script>
+
 </body>
 </html>
