@@ -67,6 +67,54 @@
   object-fit: cover;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
   }
+  
+  .navbar {
+  background-color: #ffffe0;
+  padding: 0.5rem 1rem;
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.nav-left a {
+  color: #b22222;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+/* 🔥 Glowing active page effect */
+@keyframes flame-glow {
+  0% {
+    box-shadow: 0 0 5px #ffcc00, 0 0 10px #ff9900, 0 0 15px #ff6600;
+  }
+  50% {
+    box-shadow: 0 0 8px #ffaa00, 0 0 14px #ff7700, 0 0 20px #ff3300;
+  }
+  100% {
+    box-shadow: 0 0 5px #ffcc00, 0 0 10px #ff9900, 0 0 15px #ff6600;
+  }
+}
+
+nav a.active,
+#blogMenu a.active {
+  color: #fff;
+  background-color: #b22222;
+  border-radius: 6px;
+  padding: 5px 10px;
+  font-weight: bold;
+  animation: flame-glow 1.5s infinite ease-in-out;
+  transition: background-color 0.3s;
+}
+
+.hamburger {
+  font-size: 28px;
+  cursor: pointer;
+  color: #b22222;
+}
+
 </style>
 </head>
   
@@ -79,14 +127,16 @@
 
 <body>
 
-  <nav>
+<nav class="navbar">
+  <div class="nav-left">
+    <div class="hamburger" onclick="toggleBlogMenu()">☰</div>
     <a href="https://stonegrillrestaurant.github.io">Home</a>
     <a href="menu.html">Menu</a>
     <a href="about.html">About</a>
     <a href="contact.html">Contact</a>
-    <a href="auth.html">Blog</a>
-    <a href="blog2.html">Blog2</a>
-  </nav>
+  </div>
+</nav>
+
 
   <div class="container">
     <h1>Contact Us</h1>
@@ -110,8 +160,39 @@
     <h2>Find Us on the Map</h2>
     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3925.2522002840583!2d124.79030379999999!3d10.321690499999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33076bc3d4b47087%3A0xa00e85f13f92744a!2sStone%20Grill%20Restaurant!5e0!3m2!1sen!2sph!4v1747403416967!5m2!1sen!2sph" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
   </div>
+  
+  <script>
+  function toggleBlogMenu() {
+    const blogMenu = document.getElementById("blogMenu");
+    blogMenu.style.display = blogMenu.style.display === "block" ? "none" : "block";
+  }
+
+  document.addEventListener("click", function (event) {
+    const blogMenu = document.getElementById("blogMenu");
+    const hamburger = document.querySelector(".hamburger");
+    if (!blogMenu.contains(event.target) && !hamburger.contains(event.target)) {
+      blogMenu.style.display = "none";
+    }
+  });
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const currentPath = window.location.pathname.split("/").pop();
+    const navLinks = document.querySelectorAll(".nav-left a");
+    const blogLinks = document.querySelectorAll("#blogMenu a");
+    const allLinks = [...navLinks, ...blogLinks];
+
+    allLinks.forEach(link => {
+      const linkPath = link.getAttribute("href").split("/").pop();
+      if (linkPath === currentPath) {
+        link.classList.add("active");
+      }
+    });
+  });
+</script>
+
    
 </body>
+  
 
  <footer>
     &copy; 2025 Stone Grill Restaurant
