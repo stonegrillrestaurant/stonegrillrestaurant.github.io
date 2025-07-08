@@ -67,7 +67,7 @@
     }
 
     .nav-links {
-      display: flex;
+      display: inline-flex;
       flex-wrap: wrap;
       gap: 1.2rem;
     }
@@ -147,13 +147,7 @@
       color: #b22222;
     }
 
-    footer {
-      background: #b22222;
-      color: white;
-      text-align: center;
-      padding: 1rem;
-      width: 100%;
-    }
+    
 
     /* Optional: Shrink on tiny screens */
     @media (max-width: 600px) {
@@ -184,7 +178,7 @@
     }
 
     /* Ensure video scales down properly on smaller screens */
-    @media (max-width: 600px) {
+    @media (max-width: 400px) {
       .media-section iframe {
         height: 250px; /* Adjust height for smaller screens */
       }
@@ -197,7 +191,7 @@
 
 
     .reflection-container {
-      max-width: 800px;
+      max-width: 600px;
       margin: 30px auto;
       padding: 30px;
       background-color: #fff8f0;
@@ -228,32 +222,6 @@
       text-align: center;
       padding: 1rem;
       margin-top: 40px;
-    }
-    @media (max-width: 400px) {
-  .nav-list a {
-    padding: 6px 8px;
-    font-size: 14px;
-  }
-
-  .hamburger {
-    font-size: 26px;
-  }
-}
-    .navbar {
-  background-color: #ffffe0;
-  padding: 0.5rem 1rem;
-}
-
-.nav-left {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-
-.nav-left a {
-  color: #b22222;
-  font-weight: bold;
-  text-decoration: none;
 }
 
 /* 🔥 Glowing active page effect */
