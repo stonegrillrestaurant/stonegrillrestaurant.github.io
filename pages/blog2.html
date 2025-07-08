@@ -186,6 +186,28 @@ header h1 {
       margin-bottom: 16px;
       text-align: justify;
     }
+    @keyframes flame-glow {
+  0% {
+    box-shadow: 0 0 5px #ffcc00, 0 0 10px #ff9900, 0 0 15px #ff6600;
+  }
+  50% {
+    box-shadow: 0 0 8px #ffaa00, 0 0 14px #ff7700, 0 0 20px #ff3300;
+  }
+  100% {
+    box-shadow: 0 0 5px #ffcc00, 0 0 10px #ff9900, 0 0 15px #ff6600;
+  }
+}
+
+nav a.active,
+#blogMenu a.active {
+  color: #fff;
+  font-weight: bold;
+  background-color: #b22222; /* or #000 for dark nav */
+  border-radius: 6px;
+  padding: 5px 10px;
+  animation: flame-glow 1.5s infinite ease-in-out;
+  transition: background-color 0.3s;
+}
 
     footer {
       background: #b22222;
@@ -204,53 +226,6 @@ header h1 {
     font-size: 26px;
   }
 }
-    .navbar {
-  background-color: #ffffe0;
-  padding: 0.5rem 1rem;
-}
-
-.nav-left {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-
-.nav-left a {
-  color: #b22222;
-  font-weight: bold;
-  text-decoration: none;
-}
-
-/* 🔥 Glowing active page effect */
-@keyframes flame-glow {
-  0% {
-    box-shadow: 0 0 5px #ffcc00, 0 0 10px #ff9900, 0 0 15px #ff6600;
-  }
-  50% {
-    box-shadow: 0 0 8px #ffaa00, 0 0 14px #ff7700, 0 0 20px #ff3300;
-  }
-  100% {
-    box-shadow: 0 0 5px #ffcc00, 0 0 10px #ff9900, 0 0 15px #ff6600;
-  }
-}
-
-nav a.active,
-#blogMenu a.active {
-  color: #fff;
-  background-color: #b22222;
-  border-radius: 6px;
-  padding: 5px 10px;
-  font-weight: bold;
-  animation: flame-glow 1.5s infinite ease-in-out;
-  transition: background-color 0.3s;
-}
-
-.hamburger {
-  font-size: 28px;
-  cursor: pointer;
-  color: #b22222;
-}
-
   </style>
 </head>
 <body>
@@ -263,16 +238,15 @@ nav a.active,
   </div>
 </header>
 
-<nav class="navbar">
-  <div class="nav-left">
-    <div class="hamburger" onclick="toggleBlogMenu()">☰</div>
-    <a href="https://stonegrillrestaurant.github.io">Home</a>
-    <a href="menu.html">Menu</a>
-    <a href="about.html">About</a>
-    <a href="contact.html">Contact</a>
-  </div>
+<nav class="main-nav">
+  <ul class="nav-list">
+    <li><a href="https://stonegrillrestaurant.github.io">Home</a></li>
+    <li><a href="menu.html">Menu</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <div class="hamburger" onclick="toggleBlogMenu()">☰</div>
 </nav>
-
 
 <div class="blog-menu" id="blogMenu">
   <ul>
@@ -281,22 +255,11 @@ nav a.active,
     <li><a href="blog3.html">More Than Meets the Eye II</a></li>
   </ul>
 </div>
-  
-<section class="media-section">
-    <iframe src="https://www.youtube.com/embed/UWlV22lYpEk?si=-XezROLL_4v1U9A-"
-            title="YouTube video player"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen>
-    </iframe>
-    <div class="fb-share-button"
-         data-href="https://stonegrillrestaurant.github.io/pages/blog2.html"
-         data-layout="button"
-         data-size="large">
-    </div>
-  
+
+  <section class="media-section">
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/UWlV22lYpEk?si=buKmSTIP3W3ODKKY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
   </section>
-  
+ 
   <main>
     <div class="reflection-container">
       <h2>More Than Meets the Eye</h2>
