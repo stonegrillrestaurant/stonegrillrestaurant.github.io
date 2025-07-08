@@ -7,14 +7,71 @@
   <title>Reverence in every dish</title>
   <link rel="icon" type="image/x-icon" href="assets/sglogoico.ico" />
  <style>
-  .container { padding: 2rem; max-width: 1000px; margin: auto; }
-    .menu-section { margin-bottom: 3rem; }
-    .menu-section h2 { color: #b22222; margin-bottom: 1rem; border-bottom: 2px solid #ffcc00; padding-bottom: 0.5rem; }
-    .menu-item { margin-bottom: 1.5rem; display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; }
-    .menu-item img { width: 200px; border-radius: 10px; }
-    .menu-item-details { flex: 1; min-width: 200px; }
-    .menu-item-details h3 { margin: 0 0 0.5rem; color: #b22222; }
   * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  padding: 2rem;
+  max-width: 1000px;
+  margin: auto;
+  width: 100%;
+}
+
+.menu-section {
+  margin-bottom: 3rem;
+}
+
+.menu-section h2 {
+  color: #b22222;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid #ffcc00;
+  padding-bottom: 0.5rem;
+  font-size: 1.8rem;
+}
+
+.menu-item {
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 1rem;
+}
+
+.menu-item img {
+  width: 200px;
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  flex-shrink: 0;
+}
+
+.menu-item-details {
+  flex: 1;
+  min-width: 200px;
+}
+
+.menu-item-details h3 {
+  margin: 0 0 0.5rem;
+  color: #b22222;
+  font-size: 1.3rem;
+}
+
+.menu-item-details p {
+  font-size: 0.95rem;
+  color: #444;
+  line-height: 1.4;
+}
+
+.menu-item-details .price {
+  font-weight: bold;
+  color: #b22222;
+  margin-top: 0.3rem;
+}
       margin: 0;
       padding: 0;
       box-sizing: border-box;
