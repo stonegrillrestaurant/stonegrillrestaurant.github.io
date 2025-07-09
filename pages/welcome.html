@@ -4,12 +4,15 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Stone Grill | Welcome</title>
+  <!-- Favicon for browser tab -->
   <link rel="icon" type="image/x-icon" href="/assets/SGRLOGOD.ico" />
   <style>
+    /* Reset box sizing for all elements */
     * {
       box-sizing: border-box;
     }
 
+    /* Basic page styles */
     html, body {
       margin: 0;
       padding: 0;
@@ -19,57 +22,62 @@
       width: 100%;
     }
 
+    /* ======= HEADER ======= */
     header {
-      background: #b22222;
-      color: white;
-      padding: 1rem 1.5rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
+      background: #b22222; /* Dark red */
+      color: white; /* Text color */
+      padding: 1rem 1.5rem; /* Spacing inside */
+      display: flex; /* Flex container */
+      align-items: center; /* Vertically align logo and title */
+      justify-content: space-between; /* Space between left and right parts */
+      flex-wrap: wrap; /* Wrap on small screens */
       width: 100%;
-      position: fixed; /* make header fixed */
-      top: 0;
+      position: fixed; /* Always visible */
+      top: 0; /* Stick to top */
       left: 0;
-      z-index: 1000;
+      z-index: 1000; /* Stay on top of other elements */
     }
 
+    /* Logo & title container inside header */
     .header-left {
       display: flex;
       align-items: center;
-      gap: 15px;
-      flex-wrap: wrap;
+      gap: 15px; /* Space between logo and title */
     }
 
+    /* Logo circle image */
     .logo-circle {
       width: 50px;
       height: 47px;
-      border-radius: 50%;
-      background-color: white;
+      border-radius: 50%; /* Make circle */
       object-fit: cover;
+      background: white;
       box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
     }
 
+    /* Restaurant name style */
     header h1 {
       font-size: 1.6rem;
       margin: 0;
-      white-space: nowrap;
+      white-space: nowrap; /* Keep on one line */
     }
 
+    /* ======= MAIN NAVIGATION ======= */
     .main-nav {
-      background-color: #ffcc00;
+      background-color: #ffcc00; /* Yellow */
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0.5rem 1.5rem;
       flex-wrap: wrap;
+      padding: 0.5rem 1.5rem;
       width: 100%;
-      position: fixed; /* fixed under header */
-      top: 72px; /* adjust to header height */
+      position: fixed; /* Stick under header */
+      top: 72px; /* Position below header */
       left: 0;
-      z-index: 999;
+      z-index: 999; /* Behind header, above other elements */
     }
 
+    /* Container for nav links & hamburger */
     .nav-links {
       display: flex;
       align-items: center;
@@ -77,45 +85,55 @@
       gap: 1.2rem;
     }
 
+    /* Style for each nav link */
     .nav-links a {
-      color: #b22222;
+      color: #b22222; /* Dark red text */
       font-weight: bold;
       text-decoration: none;
       padding: 0.5rem 0.7rem;
       border-radius: 4px;
     }
 
+    /* Hover effect for nav links */
     .nav-links a:hover {
-      background-color: #ffe066;
+      background-color: #ffe066; /* Lighter yellow */
     }
 
+    /* Animation for active page link (like flame glow) */
     @keyframes flame-glow {
       0% { box-shadow: 0 0 5px #ffcc00, 0 0 10px #ff9900, 0 0 15px #ff6600; }
       50% { box-shadow: 0 0 8px #ffaa00, 0 0 14px #ff7700, 0 0 20px #ff3300; }
       100% { box-shadow: 0 0 5px #ffcc00, 0 0 10px #ff9900, 0 0 15px #ff6600; }
     }
 
+    /* Highlight the active nav link */
     .nav-links a.active {
       color: white;
       background-color: #b22222;
       animation: flame-glow 1.5s infinite ease-in-out;
     }
 
+    /* ======= HAMBURGER MENU BUTTON ======= */
     .hamburger {
       font-size: 28px;
       cursor: pointer;
       background: none;
       border: none;
       color: #b22222;
-      display: none; /* desktop hidden */
+      display: none; /* Hidden on large screens, visible on mobile */
     }
 
+    /* ======= BLOG DROPDOWN MENU ======= */
     .blog-menu {
-      display: none;
-      flex-direction: column;
-      background-color: #ffe88e;
+      display: none; /* Hidden by default */
+      flex-direction: column; /* Stack blog links vertically */
+      background: #ffe88e; /* Light yellow */
       padding: 0.5rem 1.5rem;
       width: 100%;
+      position: fixed; /* Under nav bar */
+      top: 122px; /* Header + nav height */
+      left: 0;
+      z-index: 998;
     }
 
     .blog-menu a {
@@ -129,75 +147,50 @@
     }
 
     .blog-menu.show {
-      display: flex;
-      border: outset;
+      display: flex; /* Show when toggled */
+      border: outset; /* Optional style */
     }
 
+    /* ======= PAGE CONTENT ======= */
     .container {
       padding: 1rem;
       width: 100%;
       max-width: 1200px;
-      margin: 150px auto 80px; /* leave space for fixed header/nav/footer */
+      margin: 150px auto 80px; /* Leave room for header/nav/footer */
     }
 
     .container img {
       width: 100%;
       height: auto;
-      border-radius: 4px;
     }
 
-    h2 {
-      color: #b22222;
-    }
-
+    /* ======= FOOTER ======= */
     footer {
       background: #b22222;
       color: white;
       text-align: center;
       padding: 1rem;
-      width: 100%;
-      position: fixed; /* fixed footer */
+      position: fixed; /* Always visible at bottom */
       bottom: 0;
       left: 0;
+      width: 100%;
     }
 
+    /* ======= RESPONSIVE ======= */
     @media (max-width: 768px) {
-      header h1 {
-        font-size: 1.3rem;
-      }
-
-      .nav-links {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0.5rem;
-        width: 100%;
-      }
-
       .hamburger {
-        display: block; /* show hamburger */
-      }
-
-      .nav-links a {
-        display: none; /* hide by default on mobile */
-      }
-
-      .nav-links.show a {
-        display: block; /* show when toggled */
-        width: 100%;
-      }
-
-      .blog-menu {
-        position: relative;
+        display: block; /* Show hamburger on mobile */
       }
 
       .container {
-        margin: 200px auto 80px; /* adjust top margin on mobile for fixed nav */
+        margin: 200px auto 80px; /* Extra top space for dropdown */
       }
     }
   </style>
 </head>
-<body>
 
+<body>
+  <!-- ======= HEADER SECTION ======= -->
   <header>
     <div class="header-left">
       <img src="/pages/images/sglogo.PNG" alt="Stone Grill Logo" class="logo-circle" />
@@ -205,9 +198,12 @@
     </div>
   </header>
 
+  <!-- ======= MAIN NAVIGATION ======= -->
   <nav class="main-nav">
-    <div class="nav-links" id="navLinks">
-      <button class="hamburger" onclick="toggleNav()">☰</button>
+    <div class="nav-links">
+      <!-- Hamburger toggles blog links on mobile -->
+      <button class="hamburger" onclick="toggleBlogMenu()">☰</button>
+      <!-- Main page links -->
       <a href="/index.html" class="active">Home</a>
       <a href="/pages/menu.html">Menu</a>
       <a href="/pages/about.html">About</a>
@@ -215,27 +211,30 @@
     </div>
   </nav>
 
-  <div class="blog-menu show" id="blogMenu">
+  <!-- ======= BLOG DROPDOWN MENU ======= -->
+  <div class="blog-menu" id="blogMenu">
     <a href="/pages/blog1.html">Blog 1</a>
     <a href="/pages/blog2.html">Blog 2</a>
     <a href="/pages/blog3.html">More Than Meets the Eye</a>
   </div>
 
+  <!-- ======= MAIN CONTENT ======= -->
   <div class="container">
     <h2>Welcome to Stone Grill</h2>
     <p>Experience the taste of tradition and comfort, grilled to perfection.</p>
     <img src="/pages/images/IMG1.jpg" alt="Delicious Dish">
   </div>
 
+  <!-- ======= FOOTER ======= -->
   <footer>
     <p>&copy; 2025 Stone Grill Restaurant · Brgy. Tinago Bato, Leyte · 📞 053 568 0539</p>
   </footer>
 
+  <!-- ======= SCRIPT: Toggle Blog Menu ======= -->
   <script>
-    function toggleNav() {
-      document.getElementById("navLinks").classList.toggle("show");
+    function toggleBlogMenu() {
+      document.getElementById("blogMenu").classList.toggle("show");
     }
   </script>
-
 </body>
 </html>
