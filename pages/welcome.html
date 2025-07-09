@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Stone Grill Restaurant</title>
-  <link rel="icon" type="image/x-icon" href="/assets/sglogoico.ico" />
+  <title>Stone Grill | Welcome</title>
+  <link rel="icon" type="image/x-icon" href="/assets/SGRLOGOD.ico" />
   <style>
     * {
       box-sizing: border-box;
@@ -28,6 +28,10 @@
       justify-content: space-between;
       flex-wrap: wrap;
       width: 100%;
+      position: fixed; /* make header fixed */
+      top: 0;
+      left: 0;
+      z-index: 1000;
     }
 
     .header-left {
@@ -42,7 +46,6 @@
       height: 47px;
       border-radius: 50%;
       background-color: white;
-      padding: 0px;
       object-fit: cover;
       box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
     }
@@ -53,19 +56,23 @@
       white-space: nowrap;
     }
 
-    /* Navigation Bar */
     .main-nav {
       background-color: #ffcc00;
-      display: inline-flex;
+      display: flex;
       align-items: center;
       justify-content: space-between;
-      flex-wrap: wrap;
       padding: 0.5rem 1.5rem;
+      flex-wrap: wrap;
       width: 100%;
+      position: fixed; /* fixed under header */
+      top: 72px; /* adjust to header height */
+      left: 0;
+      z-index: 999;
     }
 
     .nav-links {
       display: flex;
+      align-items: center;
       flex-wrap: wrap;
       gap: 1.2rem;
     }
@@ -82,7 +89,6 @@
       background-color: #ffe066;
     }
 
-    /* Active glowing link */
     @keyframes flame-glow {
       0% { box-shadow: 0 0 5px #ffcc00, 0 0 10px #ff9900, 0 0 15px #ff6600; }
       50% { box-shadow: 0 0 8px #ffaa00, 0 0 14px #ff7700, 0 0 20px #ff3300; }
@@ -101,9 +107,9 @@
       background: none;
       border: none;
       color: #b22222;
+      display: none; /* desktop hidden */
     }
 
-    /* Blog links under hamburger */
     .blog-menu {
       display: none;
       flex-direction: column;
@@ -115,7 +121,6 @@
     .blog-menu a {
       padding: 0.5rem 0;
       color: #b22222;
-      font-weight: initial;
       text-decoration: none;
     }
 
@@ -125,22 +130,20 @@
 
     .blog-menu.show {
       display: flex;
-      border: outset
+      border: outset;
     }
 
     .container {
-      align-content:space-between;
       padding: 1rem;
       width: 100%;
-      max-width: 100%;
+      max-width: 1200px;
+      margin: 150px auto 80px; /* leave space for fixed header/nav/footer */
     }
 
     .container img {
       width: 100%;
-      max-width: 100%;
       height: auto;
-      border-radius: 0px;
-      margin-bottom: 0rem;
+      border-radius: 4px;
     }
 
     h2 {
@@ -153,18 +156,42 @@
       text-align: center;
       padding: 1rem;
       width: 100%;
+      position: fixed; /* fixed footer */
+      bottom: 0;
+      left: 0;
     }
 
-    /* Optional: Shrink on tiny screens */
-    @media (max-width: 480px) {
+    @media (max-width: 768px) {
       header h1 {
-        font-size: 1.5rem;
+        font-size: 1.3rem;
       }
 
       .nav-links {
-        flex-direction: row;
+        flex-direction: column;
         align-items: flex-start;
         gap: 0.5rem;
+        width: 100%;
+      }
+
+      .hamburger {
+        display: block; /* show hamburger */
+      }
+
+      .nav-links a {
+        display: none; /* hide by default on mobile */
+      }
+
+      .nav-links.show a {
+        display: block; /* show when toggled */
+        width: 100%;
+      }
+
+      .blog-menu {
+        position: relative;
+      }
+
+      .container {
+        margin: 200px auto 80px; /* adjust top margin on mobile for fixed nav */
       }
     }
   </style>
@@ -179,17 +206,16 @@
   </header>
 
   <nav class="main-nav">
-    <div class="nav-links">
-      <button class="hamburger" onclick="toggleBlogMenu()">☰</button>
+    <div class="nav-links" id="navLinks">
+      <button class="hamburger" onclick="toggleNav()">☰</button>
       <a href="/index.html" class="active">Home</a>
       <a href="/pages/menu.html">Menu</a>
       <a href="/pages/about.html">About</a>
       <a href="/pages/contact.html">Contact</a>
     </div>
-    
   </nav>
 
-  <div class="blog-menu" id="blogMenu">
+  <div class="blog-menu show" id="blogMenu">
     <a href="/pages/blog1.html">Blog 1</a>
     <a href="/pages/blog2.html">Blog 2</a>
     <a href="/pages/blog3.html">More Than Meets the Eye</a>
@@ -206,8 +232,8 @@
   </footer>
 
   <script>
-    function toggleBlogMenu() {
-      document.getElementById("blogMenu").classList.toggle("show");
+    function toggleNav() {
+      document.getElementById("navLinks").classList.toggle("show");
     }
   </script>
 
