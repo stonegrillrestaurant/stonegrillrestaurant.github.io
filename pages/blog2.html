@@ -96,11 +96,10 @@ header h1 {
 
 /* hamburger icon stays fixed to right */
 .hamburger {
-  font-size: 28px;
+  font-size: 36px;
   cursor: pointer;
   color: #b22222;
   flex-shrink: 0;
-  margin-left: auto;
 }
 
 /* Blog menu dropdown */
@@ -239,13 +238,15 @@ nav a.active,
 </header>
 
 <nav class="main-nav">
+  
+  <div class="hamburger" onclick="toggleBlogMenu()">☰</div>
   <ul class="nav-list">
     <li><a href="https://stonegrillrestaurant.github.io">Home</a></li>
     <li><a href="menu.html">Menu</a></li>
     <li><a href="about.html">About</a></li>
     <li><a href="contact.html">Contact</a></li>
   </ul>
-  <div class="hamburger" onclick="toggleBlogMenu()">☰</div>
+  
 </nav>
 
 <div class="blog-menu" id="blogMenu">
