@@ -249,7 +249,8 @@ nav a.active,
   <footer>
     &copy; 2025 Stone Grill Restaurant
   </footer>
-<script>
+
+  <script>
   function toggleBlogMenu() {
     const blogMenu = document.getElementById("blogMenu");
     blogMenu.style.display = blogMenu.style.display === "block" ? "none" : "block";
@@ -258,54 +259,13 @@ nav a.active,
   document.addEventListener("click", function (event) {
     const blogMenu = document.getElementById("blogMenu");
     const hamburger = document.querySelector(".hamburger");
+
     if (!blogMenu.contains(event.target) && !hamburger.contains(event.target)) {
       blogMenu.style.display = "none";
     }
   });
-
-  document.addEventListener("DOMContentLoaded", function () {
-    const currentPath = window.location.pathname.split("/").pop();
-    const navLinks = document.querySelectorAll(".nav-left a");
-    const blogLinks = document.querySelectorAll("#blogMenu a");
-    const allLinks = [...navLinks, ...blogLinks];
-
-    allLinks.forEach(link => {
-      const linkPath = link.getAttribute("href").split("/").pop();
-      if (linkPath === currentPath) {
-        link.classList.add("active");
-      }
-    });
-  });
 </script>
-  
-<script>
-  function toggleBlogMenu() {
-    const blogMenu = document.getElementById("blogMenu");
-    blogMenu.style.display = blogMenu.style.display === "block" ? "none" : "block";
-  }
 
-  document.addEventListener("click", function (event) {
-    const blogMenu = document.getElementById("blogMenu");
-    const hamburger = document.querySelector(".hamburger");
-    if (!blogMenu.contains(event.target) && !hamburger.contains(event.target)) {
-      blogMenu.style.display = "none";
-    }
-  });
-
-  document.addEventListener("DOMContentLoaded", function () {
-    const currentPath = window.location.pathname.split("/").pop();
-    const navLinks = document.querySelectorAll(".nav-left a");
-    const blogLinks = document.querySelectorAll("#blogMenu a");
-    const allLinks = [...navLinks, ...blogLinks];
-
-    allLinks.forEach(link => {
-      const linkPath = link.getAttribute("href").split("/").pop();
-      if (linkPath === currentPath) {
-        link.classList.add("active");
-      }
-    });
-  });
-</script>
 
 </body>
 </html>
