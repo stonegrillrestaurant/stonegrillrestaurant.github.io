@@ -33,19 +33,38 @@
     nav a:hover {
       text-decoration: underline;
     }
-    .hero {
-      background: url('your-hero-image.jpg') center/cover no-repeat;
-      height: 350px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      text-shadow: 1px 1px 5px black;
-    }
-    .hero h1 {
-      background-color: rgba(0,0,0,0.5);
-      padding: 1rem;
-      border-radius: 8px;
+   .hero {
+  position: relative;
+  background: url('images/stonegrill-hero.jpg') center/cover no-repeat;
+  height: 350px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  overflow: hidden;
+}
+
+/* Dark overlay layer */
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.7); /* Adjust darkness here */
+  z-index: 1;
+}
+
+/* Text stays on top of overlay */
+.hero h1 {
+  position: relative;
+  z-index: 2;
+  background-color: rgba(0,0,0,0.4);
+  padding: 1rem;
+  border-radius: 8px;
+  text-shadow: 1px 1px 5px black;
+}
     }
     .content {
       padding: 2rem;
