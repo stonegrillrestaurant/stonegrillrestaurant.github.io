@@ -5,54 +5,138 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link rel="icon" type="image/x-icon" href="/assets/SGRLOGOD.ico" />
   <title>Stone Grill Restaurant</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #fff8f0;
-      color: #333;
-    }
-    header {
-      background-color: #b22222;
-      color: #fff;
-      padding: 1rem;
-      text-align: center;
-      
-      }
-   .hero {
+<style>
+  body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #fff8f0;
+    color: #333;
+  }
+
+  header {
+    background-color: #b22222;
+    color: #fff;
+    padding: 1rem;
+    text-align: center;
+  }
+  h1 {
+  text-align: center;
+}
+
+.hero {
   position: relative;
   background: url('images/704A7999-E6D6-4152-8847-061C1FE347E7.jpeg') center/cover no-repeat;
-  width: 100vh;
+  width: 100%;
+  height: 400px;
   display: flex;
   align-items: center;
   justify-content: center;
+  text-align: center;
+  overflow: hidden;
   color: white;
- 
 }
 
-/* Dark overlay layer */
 .hero::before {
   content: "";
   position: absolute;
-  top: 3;
+  top: 0;
   left: 0;
-  height: 100%;
   width: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* Adjust darkness here */
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
   z-index: 1;
 }
 
-/* Text stays on top of overlay */
-.hero h1 {
+.hero-content {
   position: relative;
   z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logo-circle {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background-color: white;
+  padding: 5px;
+  object-fit: cover;
+  margin-bottom: 0.5rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+}
+
+.hero h1 {
   background-color: rgba(0,0,0,0.4);
-  padding: 1rem;
+  padding: 0.5rem 1rem;
   border-radius: 8px;
+  font-size: 2rem;
+  margin: 0.3rem 0;
   text-shadow: 1px 1px 5px black;
 }
- 
-      
+
+.tagline {
+  font-size: 1rem;
+  margin: -0.5rem 0 1rem;
+}
+
+.hero-nav {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: nowrap;
+  justify-content: center;
+}
+
+.hero-nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  background-color: rgba(255, 255, 255, 0.2);
+  padding: 0.4rem 0.8rem;
+  border-radius: 5px;
+  transition: background 0.3s ease;
+}
+
+.hero-nav a:hover {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+/* Responsive Tweaks */
+@media (max-width: 768px) {
+  .hero {
+    height: 200px;
+  }
+
+  .hero h1 {
+    font-size: 1.6rem;
+  }
+
+  .logo-circle {
+    width: 50px;
+    height: 45px;
+  }
+
+  .hero-nav {
+    gap: 1rem;
+    font-size: 0.6rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    height: 160px;
+  }
+
+  .hero h1 {
+    font-size: 1.4rem;
+  }
+
+  .hero-nav {
+    flex-direction: row;
+    gap: 1rem;
+  }
+}
+
     }
     nav {
       background-color: #ffcc00;
@@ -73,7 +157,7 @@
        }
     .content {
       padding: 2rem;
-      max-width: 600px;
+      max-width: 500px;
       margin: auto;
     }
     .featured {
@@ -119,17 +203,37 @@
     }
    
       nav {
-        flex-direction: column;
+        flex-direction: row;
       }
     }
+  
+  /* center horizontally */
+  .center-wrapper {
+  display: flex;
+  justify-content: center;   /* center horizontally */
+  align-items: center;       /* center vertically */
+  height: 100vh;             /* or set a specific height like 400px */
+  text-align: center;
+}
+
   </style>
 </head>
 <body>
 
   <header class="hero">
+  <div class="hero-content">
+    <img src="images/sglogo.PNG" alt="Stone Grill Logo" class="logo-circle">
     <h1>Stone Grill Restaurant</h1>
-    <p>Enjoyable and Relaxing</p>
-  </header>
+    <p class="tagline">Enjoyable and Relaxing</p>
+    <nav class="hero-nav">
+      <a href="/pages/sgr.html">Home</a>
+      <a href="/pages/menu.html">Menu</a>
+      <a href="/pages/about.html">About Us</a>
+      <a href="/pages/contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
 
   <nav class="nav">
     <div> 
@@ -140,7 +244,7 @@
     </div>
   </nav>
 
-  <div>
+  <div class="center-wrapper">
     <h1>Welcome to Stone Grill</h1>
   </div>
 
