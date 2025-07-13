@@ -1,322 +1,256 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
-<link rel="icon" type="image/x-icon" href="/assets/whitelogo.png" />
-<title>Stone Grill | Menu</title>
-  
- <style>
-  * 
-  {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/x-icon" href="/assets/SGRLOGOD.ico" />
+  <title>Menu | Stone Grill Restaurant</title>
 
-.container {
-  padding: 2rem;
-  max-width: 1000px;
-  margin: auto;
-  width: 100%;
-}
+  <!-- Elegant Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;700&display=swap" rel="stylesheet">
 
-.menu-section {
-  margin-bottom: 3rem;
-}
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Cormorant Garamond', serif;
+      background-color: #f9efe5;
+      color: #472424;
+    }
 
-.menu-section h2 {
-  color: #b22222;
-  margin-bottom: 1rem;
-  border-bottom: 2px solid #ffcc00;
-  padding-bottom: 0.5rem;
-  font-size: 1.8rem;
-}
+    header.hero {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: url('images/704A7999-E6D6-4152-8847-061C1FE347E7.jpeg') center/cover no-repeat;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      min-height: 200px;
+      width: 100%;
+      color: white;
+      padding: 1rem 1rem 0 1rem;
+      box-sizing: border-box;
+    }
 
-.menu-item {
-  margin-bottom: 1.5rem;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  align-items: center;
-  border-bottom: 1px solid #eee;
-  padding-bottom: 1rem;
-}
+    header.hero::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 1;
+    }
 
-.menu-item img {
-  width: 200px;
-  max-width: 100%;
-  height: auto;
-  border-radius: 10px;
-  flex-shrink: 0;
-}
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 0.4rem;
+    }
 
-.menu-item-details {
-  flex: 1;
-  min-width: 100px;
-}
+    .logo-circle {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background-color: white;
+      padding: 3px;
+      object-fit: cover;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    }
 
-.menu-item-details h3 {
-  margin: 0 0 0.5rem;
-  color: #b22222;
-  font-size: 1.3rem;
-}
+    .hero h1 {
+      font-size: 2.2rem;
+      margin: 0.2rem 0 0;
+      text-shadow: 1px 1px 5px black;
+      background-color: rgba(0, 0, 0, 0.4);
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+    }
 
-.menu-item-details p {
-  font-size: 0.95rem;
-  color: #444;
-  line-height: 1.4;
-}
+    .tagline {
+      font-size: 1.05rem;
+      background-color: rgba(255, 255, 255, 0.15);
+      padding: 0.3rem 0.7rem;
+      border-radius: 5px;
+    }
 
-.menu-item-details .price {
-  font-weight: bold;
-  color: #b22222;
-  margin-top: 0.3rem;
-}
-     /* =============== BASIC RESET =============== */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+    .hero-nav {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-wrap: nowrap;
+      gap: 0.6rem;
+      justify-content: center;
+      overflow-x: auto;
+      width: 100%;
+      padding: 0.7rem 1rem;
+      scrollbar-width: none;
+      background-color: rgba(0, 0, 0, 0.3);
+    }
 
-/* =============== BODY =============== */
-body {
-  font-family: 'Segoe UI', sans-serif;
-  background: #fff8f0;
-  color: #333;
-  padding-top: 120px; /* header + nav height */
-}
+    .hero-nav::-webkit-scrollbar {
+      display: none;
+    }
 
-/* =============== HEADER =============== */
-header {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  background: #b22222;
-  z-index: 9999;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 0.5rem 1rem;
-  height: 60px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-}
+    .hero-nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      background-color: rgba(255, 255, 255, 0.2);
+      padding: 0.3rem 0.6rem;
+      border-radius: 5px;
+      white-space: nowrap;
+      font-size: 0.9rem;
+      transition: background 0.3s ease;
+    }
 
-header .header-left {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  max-width: 1200px;
-  width: 100%;
-}
+    .hero-nav a:hover {
+      background-color: rgba(255, 255, 255, 0.4);
+    }
 
-.logo-circle {
-  width: 45px;
-  height: 45px;
-  border-radius: 50%;
-  background: white;
-  padding: 2px;
-  object-fit: cover;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-}
+    .content {
+      max-width: 900px;
+      margin: auto;
+      padding: 2rem 1rem;
+      text-align: left;
+    }
 
-/* Shrink text responsively */
-header h1 {
-  color: white;
-  font-size: clamp(1.2rem, 3vw, 1.8rem);
-  white-space: nowrap;
-}
+    .menu-section {
+      margin: 2rem 0;
+    }
 
-/* =============== NAVBAR =============== */
-nav.navbar {
-  position: fixed;
-  top: 60px;
-  width: 100%;
-  background: #ffcc00;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0.5rem 1rem;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  z-index: 9998;
-  flex-wrap: nowrap;
-  overflow-x: auto;
-}
+    .menu-section h2 {
+      font-size: 1.8rem;
+      color: #a51313;
+      border-bottom: 3px solid #f2c200;
+      padding-bottom: 0.3rem;
+      margin-bottom: 1rem;
+    }
 
-.nav-left {
-  display: flex;
-  gap: 1rem;
-  align-items: center;
-}
+    .menu-entry {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+      border-bottom: 1px solid #eee;
+      padding-bottom: 1rem;
+    }
 
-.nav-left a {
-  color: #b22222;
-  font-weight: bold;
-  text-decoration: none;
-  white-space: nowrap;
-}
+    .menu-entry img {
+      width: 100px;
+      height: 75px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
 
-nav a.active {
-  background: #b22222;
-  color: white;
-  padding: 5px 10px;
-  border-radius: 6px;
-  animation: flame-glow 1.5s infinite ease-in-out;
-}
+    .menu-details {
+      flex: 1;
+    }
 
-/* =============== HAMBURGER MENU =============== */
-.hamburger {
-  font-size: 26px;
-  color: #b22222;
-  cursor: pointer;
-  user-select: none;
-}
+    .menu-details h3 {
+      margin: 0;
+      color: #a51313;
+      font-size: 1.1rem;
+    }
 
-/* Blog dropdown */
-.blog-menu {
-  display: none;
-  position: fixed;
-  top: 110px;
-  right: 20px;
-  background: #ffe680;
-  border: 1px solid #b22222;
-  border-radius: 5px;
-  padding: 10px;
-  z-index: 10000;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-}
+    .menu-details p {
+      margin: 0.3rem 0 0;
+      font-size: 0.95rem;
+      color: #333;
+    }
 
-.blog-menu ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
+    footer {
+      background-color: #6f2626;
+      color: white;
+      text-align: center;
+      padding: 0.5rem;
+    }
 
-.blog-menu li {
-  margin: 10px 0;
-}
+    footer a {
+      color: white;
+      text-decoration: none;
+    }
 
-.blog-menu a {
-  color: #b22222;
-  font-weight: bold;
-  text-decoration: none;
-}
+    footer a:hover {
+      text-decoration: underline;
+    }
 
-/* Responsive fallback for tight spaces */
-@media (max-width: 480px) {
-  .logo-circle {
-    width: 36px;
-    height: 36px;
-  }
+    @media (max-width: 768px) {
+      .logo-circle {
+        width: 42px;
+        height: 42px;
+      }
 
-  header h1 {
-    font-size: 1.3rem;
-  }
+      .hero h1 {
+        font-size: 1.6rem;
+      }
 
-  .nav-left {
-    gap: 0.6rem;
-    font-size: 0.9rem;
-  }
+      .tagline {
+        font-size: 0.9rem;
+      }
 
-  .hamburger {
-    font-size: 22px;
-  }
-}
-
-</style>
+      .hero-nav a {
+        font-size: 0.75rem;
+        padding: 0.25rem 0.4rem;
+      }
+    }
+  </style>
 </head>
 <body>
-  <header>
-    <div style="display: flex; align-items: center;">
-      <img src="/pages/images/sglogo.PNG" alt="Stone Grill Logo" class="logo-circle">
-    <h1>Stone Grill Restaurant</h1>
+  <header class="hero">
+    <div class="hero-content">
+      <img src="images/sglogo.PNG" alt="Stone Grill Logo" class="logo-circle" />
+      <h1>Stone Grill Restaurant</h1>
+      <p class="tagline">Enjoyable and Relaxing</p>
     </div>
+    <nav class="hero-nav">
+      <a href="/pages/sgr.html">Home</a>
+      <a href="/pages/menu.html" class="active">Menu</a>
+      <a href="/pages/about.html">About</a>
+      <a href="/pages/contact.html">Contact</a>
+    </nav>
   </header>
-     <nav class="navbar">
-  <div class="nav-left">
-    <div class="hamburger" onclick="toggleBlogMenu()">☰</div>
-    <a href="sgr.html">Home</a>
-    <a href="welcome.html">page</a>
-    <a href="menu.html">Menu</a>
-    <a href="about.html">About</a>
-    <a href="contact.html">Contact</a>
-  </div>
 
-<div class="blog-menu" id="blogMenu">
-  <ul>
-    <li><a href="auth.html">The idea of God</a></li>
-    <li><a href="blog2.html">More Than Meets the Eye</a></li>
-    <li><a href="blog3.html">More Than Meets the Eye II</a></li>
-  </ul>
-</div>
-</nav>
-
-<main>
-  <div class="container">
-    <h1>Our Menu</h1>
+  <div class="content">
     <div class="menu-section">
       <h2>Signature Dishes</h2>
-      <div class="menu-item">
-        <img src="../pages/images/calamari.jpg" alt="Calamari">
-        <div class="menu-item-details">
+      <div class="menu-entry">
+        <img src="/pages/images/calamari.jpg" alt="Calamari">
+        <div class="menu-details">
           <h3>Calamari</h3>
           <p>Crispy, golden-fried squid rings served with our special dipping sauce.</p>
         </div>
       </div>
-      <div class="menu-item">
+      <div class="menu-entry">
         <img src="/pages/images/pata.jpg" alt="Crispy Pata">
-        <div class="menu-item-details">
+        <div class="menu-details">
           <h3>Crispy Pata</h3>
           <p>Deep-fried pork knuckle, crispy on the outside and tender on the inside. Served with soy-vinegar dip.</p>
         </div>
       </div>
     </div>
+
     <div class="menu-section">
       <h2>Noodle Specials</h2>
-      <div class="menu-item">
+      <div class="menu-entry">
         <img src="/pages/images/Bam-i.jpg" alt="Pancit Canton">
-        <div class="menu-item-details">
+        <div class="menu-details">
           <h3>Pancit Canton</h3>
           <p>Classic Filipino stir-fried noodles with vegetables, meat, and seafood. A must-try!</p>
         </div>
       </div>
     </div>
-    <div class="menu-section">
-      <h2>Seafood Platters</h2>
-      <div class="menu-item">
-        <img src="/pages/images/boodle.jpg" alt="Seafood Platter">
-        <div class="menu-item-details">
-          <h3>Mixed Seafood Boodle</h3>
-          <p>A generous plate of grilled shrimp, squid, fish, and mussels perfect for sharing!</p>
-        </div>
-      </div>
-    </div>
   </div>
-</main>
+
   <footer>
-    &copy; 2025 Stone Grill Restaurant
-    <a href="https://www.facebook.com/sharer/sharer.php?u=https://stonegrillrestaurant.github.io/pages/menu.html" 
-   target="_blank">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Facebook_Logo_%282019%29.png" 
-       alt="Share on Facebook" width="40">
-    </a>
+    &copy; 2025 Stone Grill Restaurant |
+    <a href="https://facebook.com/stonecitygrill">Facebook</a>
   </footer>
-<script>
-  function toggleBlogMenu() {
-    const blogMenu = document.getElementById("blogMenu");
-    blogMenu.style.display = blogMenu.style.display === "block" ? "none" : "block";
-  }
-
-  document.addEventListener("click", function (event) {
-    const blogMenu = document.getElementById("blogMenu");
-    const hamburger = document.querySelector(".hamburger");
-
-    if (!blogMenu.contains(event.target) && !hamburger.contains(event.target)) {
-      blogMenu.style.display = "none";
-    }
-  });
-</script>
-
 </body>
 </html>
