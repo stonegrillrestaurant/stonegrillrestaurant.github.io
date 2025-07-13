@@ -1,31 +1,36 @@
 <!doctype html>
 <html lang="en">
-
 <head>
-  <!-- Basic Page Information -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="icon" type="image/x-icon" href="/assets/SGRLOGOD.ico" />
-  <title>Stone Grill Restaurant</title>
+  <title>Menu | Stone Grill Restaurant</title>
 
-  <!-- Internal CSS -->
+  <!-- Elegant Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;700&display=swap" rel="stylesheet">
+
   <style>
     body {
       margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #f0dfce;
-      color: #333;
+      font-family: 'Cormorant Garamond', serif;
+      background-color: #f9efe5;
+      color: #472424;
     }
 
     header.hero {
-      position: relative;
-      background: url('images/stonegrill-hero1.jpeg') center/cover no-repeat;
-      height: 51%;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: url('images/704A7999-E6D6-4152-8847-061C1FE347E7.jpeg') center/cover no-repeat;
       display: flex;
-      justify-content: center;
-      text-align: center;
-      overflow: hidden;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      min-height: 320px;
+      width: 100%;
       color: white;
+      padding: 1rem 1rem 0 1rem;
+      box-sizing: border-box;
     }
 
     header.hero::before {
@@ -41,44 +46,56 @@
 
     .hero-content {
       position: relative;
-      z-index: 3;
+      z-index: 2;
       display: flex;
       flex-direction: column;
-      align-items: ;
-      padding: 1rem
+      align-items: center;
+      text-align: center;
+      gap: 0.4rem;
     }
 
     .logo-circle {
-      width: 70px;
-      height: 70px;
+      width: 50px;
+      height: 50px;
       border-radius: 50%;
       background-color: white;
-      padding: 5px;
+      padding: 3px;
       object-fit: cover;
-      margin-bottom: 0.5rem;
       box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
     }
 
     .hero h1 {
+      font-size: 2.2rem;
+      margin: 0.2rem 0 0;
+      text-shadow: 1px 1px 5px black;
       background-color: rgba(0, 0, 0, 0.4);
       padding: 0.5rem 1rem;
       border-radius: 8px;
-      font-size: 2rem;
-      margin: 0.3rem 0;
-      text-shadow: 1px 1px 5px black;
     }
 
     .tagline {
-      font-size: 1rem;
-      margin: 0.2rem 0 0;
+      font-size: 1.05rem;
+      background-color: rgba(255, 255, 255, 0.15);
+      padding: 0.3rem 0.7rem;
+      border-radius: 5px;
     }
 
     .hero-nav {
+      position: relative;
+      z-index: 2;
       display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
+      flex-wrap: nowrap;
+      gap: 0.6rem;
       justify-content: center;
-      margin-top: 0.5rem;
+      overflow-x: auto;
+      width: 100%;
+      padding: 0.7rem 1rem;
+      scrollbar-width: none;
+      background-color: rgba(0, 0, 0, 0.3);
+    }
+
+    .hero-nav::-webkit-scrollbar {
+      display: none;
     }
 
     .hero-nav a {
@@ -86,8 +103,10 @@
       text-decoration: none;
       font-weight: bold;
       background-color: rgba(255, 255, 255, 0.2);
-      padding: 0.4rem 0.8rem;
+      padding: 0.3rem 0.6rem;
       border-radius: 5px;
+      white-space: nowrap;
+      font-size: 0.9rem;
       transition: background 0.3s ease;
     }
 
@@ -95,51 +114,55 @@
       background-color: rgba(255, 255, 255, 0.4);
     }
 
-    nav.nav-links {
-      text-align: center;
-      margin: 0.5rem 0;
-      flex-wrap: wrap;
-    }
-
-    nav.nav-links a {
-      color: #b22222;
-      margin: 0.4rem 0.6rem;
-      text-decoration: none;
-      font-weight: bold;
-      display: inline-block;
-    }
-
-    nav.nav-links a:hover {
-      text-decoration: underline;
-    }
-
     .content {
-      max-width: 800px;
+      max-width: 1000px;
       margin: auto;
-      padding: 1rem;
-      text-align: center;
-    }
-
-    .content ul {
+      padding: 2rem 1rem;
       text-align: left;
-      display: inline-block;
-      padding-left: 1.2rem;
     }
 
-    .call-button {
-      display: inline-block;
-      background-color: #a51313;
-      color: white;
-      padding: 0.5rem 1rem;
-      text-decoration: none;
+    .menu-section {
+      margin: 2rem 0;
+    }
+
+    .menu-section h2 {
+      font-size: 1.8rem;
+      color: #a51313;
+      border-bottom: 3px solid #f2c200;
+      padding-bottom: 0.3rem;
+      margin-bottom: 1rem;
+    }
+
+    .menu-entry {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+      border-bottom: 1px solid #eee;
+      padding-bottom: 1rem;
+    }
+
+    .menu-entry img {
+      width: 100px;
+      height: 75px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    .menu-details {
+      flex: 1;
+    }
+
+    .menu-details h3 {
+      margin: 0;
+      color: #a51313;
       font-size: 1.1rem;
-      border-radius: 21px;
-      transition: background 0.3s ease;
-      margin-top: 1rem;
     }
 
-    .call-button:hover {
-      background-color: #ca4646;
+    .menu-details p {
+      margin: 0.3rem 0 0;
+      font-size: 0.95rem;
+      color: #333;
     }
 
     footer {
@@ -159,86 +182,70 @@
     }
 
     @media (max-width: 768px) {
-      header.hero {
-        height: 250px;
+      .logo-circle {
+        width: 42px;
+        height: 42px;
       }
 
       .hero h1 {
-        font-size: 1.5rem;
+        font-size: 1.6rem;
       }
 
-      .logo-circle {
-        width: 55px;
-        height: 55px;
-      }
-
-      .hero-nav {
-        gap: 0.6rem;
+      .tagline {
         font-size: 0.9rem;
       }
-    }
 
-    @media (max-width: 480px) {
-      header.hero {
-        height: 180px;
-      }
-
-      .hero h1 {
-        font-size: 1.3rem;
-      }
-
-      .hero-nav {
-        flex-direction: column;
-        gap: 0.5rem;
+      .hero-nav a {
+        font-size: 0.75rem;
+        padding: 0.25rem 0.4rem;
       }
     }
   </style>
 </head>
-
 <body>
   <header class="hero">
     <div class="hero-content">
       <img src="images/sglogo.PNG" alt="Stone Grill Logo" class="logo-circle" />
       <h1>Stone Grill Restaurant</h1>
       <p class="tagline">Enjoyable and Relaxing</p>
-      <nav class="hero-nav">
-        <a href="/pages/sgr.html">Home</a>
-        <a href="/pages/menu.html">Menu</a>
-        <a href="/pages/about.html">About</a>
-        <a href="/pages/contact.html">Contact</a>
-      </nav>
     </div>
+    <nav class="hero-nav">
+      <a href="/pages/sgr.html">Home</a>
+      <a href="/pages/menu.html" class="active">Menu</a>
+      <a href="/pages/about.html">About</a>
+      <a href="/pages/contact.html">Contact</a>
+    </nav>
   </header>
 
-  <nav class="nav-links">
-    <a href="/pages/blog1.html">Blog 1</a>
-    <a href="/pages/blog2.html">Blog 2</a>
-    <a href="/pages/blog3.html">Blog 3</a>
-  </nav>
-
   <div class="content">
-    <h2>Welcome to Stone Grill</h2>
-    <p><strong>Your go-to destination for a unique dining experience.</strong></p>
-    <p>Founded in 2014, we introduced the concept of hot stone cooking to our community, allowing guests to enjoy freshly grilled meals right at their table. This interactive style of dining makes every visit memorable and perfect for families, friends, and special celebrations.</p>
+    <div class="menu-section">
+      <h2>Signature Dishes</h2>
+      <div class="menu-entry">
+        <img src="/pages/images/calamari.jpg" alt="Calamari">
+        <div class="menu-details">
+          <h3>Calamari</h3>
+          <p>Crispy, golden-fried squid rings served with our special dipping sauce.</p>
+        </div>
+      </div>
+      <div class="menu-entry">
+        <img src="/pages/images/pata.jpg" alt="Crispy Pata">
+        <div class="menu-details">
+          <h3>Crispy Pata</h3>
+          <p>Deep-fried pork knuckle, crispy on the outside and tender on the inside. Served with soy-vinegar dip.</p>
+        </div>
+      </div>
+    </div>
 
-    <h2>About Us</h2>
-    <p>At Stone Grill, we believe in making every meal memorable. Our cooking style allows you to grill your food fresh, hot, and just the way you like it. Located in Bato, Leyte, we're proud to serve you with love and flavor.</p>
-
-    <h2>Our Mission</h2>
-    <p>To deliver delicious food and create a relaxing atmosphere where every guest feels right at home. We believe that good food, good service, and a good ambiance go hand in hand in making unforgettable moments.</p>
-
-    <h2>Why Choose Us?</h2>
-    <ul>
-      <li>✅ Cook your meal your way with our hot stone grilling method</li>
-      <li>✅ Friendly and attentive service</li>
-      <li>✅ Family-friendly environment</li>
-      <li>✅ Centrally located at the heart of Bato, Leyte</li>
-    </ul>
-
-    <p>Come join us and experience the sizzle at Stone Grill. We look forward to serving you!</p>
-
-    <h2>Advance Orders</h2>
-    <a class="call-button" href="tel:+63535680539">Call Us Now</a>
+    <div class="menu-section">
+      <h2>Noodle Specials</h2>
+      <div class="menu-entry">
+        <img src="/pages/images/Bam-i.jpg" alt="Pancit Canton">
+        <div class="menu-details">
+          <h3>Pancit Canton</h3>
+          <p>Classic Filipino stir-fried noodles with vegetables, meat, and seafood. A must-try!</p>
+        </div>
+      </div>
+    </div>
   </div>
 
   <footer>
@@ -246,6 +253,4 @@
     <a href="https://facebook.com/stonecitygrill">Facebook</a>
   </footer>
 </body>
-
 </html>
-
