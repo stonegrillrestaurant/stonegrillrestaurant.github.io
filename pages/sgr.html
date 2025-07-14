@@ -219,6 +219,35 @@
         padding: 0.3rem 0.6rem;
       }
     }
+    .custom-feature {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  background: #f9f9f9;
+  padding: 40px 20px;
+  border-radius: 8px;
+}
+
+.feature-image {
+  max-width: 200px;
+  height: auto;
+  border-radius: 8px;
+}
+
+.feature-text {
+  max-width: 600px;
+}
+
+.feature-text h2 {
+  margin-top: 0;
+  font-size: 24px;
+}
+
+.feature-text p {
+  font-size: 16px;
+  color: #555;
+}
   </style>
 </head>
 
@@ -245,7 +274,13 @@
     <a href="/pages/blog2.html">Blog 2</a>
     <a href="/pages/blog3.html">Blog 3</a>
   </nav>
-
+  <section class="custom-feature">
+  <img src="path/to/your-image.jpg" alt="Feature Image" class="feature-image">
+  <div class="feature-text">
+    <h2>Stone Grill Restaurant</h2>
+    <p>your go-to destination for a unique dining experience.</p>
+  </div>
+</section>
   <!-- Content -->
   <div class="content">
      <p><strong>Welcome to Stone Grill Restaurant</strong></p>
