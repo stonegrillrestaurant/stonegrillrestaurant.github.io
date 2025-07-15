@@ -11024,7 +11024,7 @@ footer.footer .social-link:hover {
   margin: 0;
   padding: 0;
 }
-@media (min-width: 992px) {
+@media (min-width: 200px) {
   .masthead {
     height: 100vh;
   }
