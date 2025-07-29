@@ -3,17 +3,17 @@
     "short_name": "StoneGrill",
     "icons": [
         {
-            "src": "/Delicious/assets/apple_touch_icon.png",
+            "src": "assets/apple_touch_icon.png",
             "sizes": "180x180",
             "type": "image/png"
         },
         {
-            "src": "/Delicious/assets/stonegrill_favicon.ico",
+            "src": "assets/stonegrill_favicon.ico",
             "sizes": "256x256",
             "type": "image/x-icon"
         }
     ],
-    "start_url": "/Delicious/",
+    "start_url": "/",
     "display": "standalone",
     "theme_color": "#000000",
     "background_color": "#ffffff"
