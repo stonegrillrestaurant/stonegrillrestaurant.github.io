@@ -21,11 +21,11 @@
     return undefined;
   }
   window.APP = {
-    TELEGRAM_BOT_TOKEN: pick('7538084446:AAFOnvqicd8LwjunpLbs-VzhuSkuLPTlusA', 'telegramBotToken'),
-    TELEGRAM_CHAT_ID: pick('-1002531095369', 'telegramChatId'),
-    GOOGLE_APPS_SCRIPT_URL: pick('GOOGLE_APPS_SCRIPT_URL', 'appsScriptUrl', 'GOOGLE_SHEETS_WEBAPP_URL'),
-    GCASH_QR_URL: pick('GCASH_QR_URL', 'gcashQrUrl') // optional
-  };
+  TELEGRAM_BOT_TOKEN: pick('TELEGRAM_BOT_TOKEN', 'telegramBotToken'),
+  TELEGRAM_CHAT_ID: pick('TELEGRAM_CHAT_ID', 'telegramChatId'),
+  GOOGLE_APPS_SCRIPT_URL: pick('GOOGLE_APPS_SCRIPT_URL', 'appsScriptUrl', 'GOOGLE_SHEETS_WEBAPP_URL'),
+  GCASH_QR_URL: pick('GCASH_QR_URL', 'gcashQrUrl') // optional
+};
 })();
 
 /* ---- Helpers ----------------------------------------------------------- */
