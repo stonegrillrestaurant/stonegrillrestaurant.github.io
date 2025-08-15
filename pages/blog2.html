@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>More Than Meets the Eye | Stone Grill Restaurant</title>
+  <!-- ✅ Standard favicon (.ico, multi-size) -->
+<link rel="icon" href="assets/stonegrill_favicon.ico" sizes="any">
+
+<!-- ✅ Apple Touch Icon (for iOS home screens) -->
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+
+<!-- ✅ Web App Manifest (for Android) -->
+<link rel="manifest" href="/site.webmanifest">
+  <link href="https://fonts.googleapis.com/css2?family=Segoe+UI&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  padding-top: 130px;
+  background: #fff8f0;
+}
+
+/* Red header */
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 70px;
+  background-color: #b22222;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.header-content {
+  width: 90%;
+  max-width: 1100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-circle {
+  width: 50px;
+  height: 47px;
+  border-radius: 50%;
+  background-color: white;
+  padding: 2px;
+  object-fit: cover;
+  margin-right: 15px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+header h1 {
+  font-size: 1.8rem;
+  margin: 0;
+  text-align: center;
+  flex-grow: 1;
+}
+/* Yellow horizontal nav */
+.main-nav {
+  position: fixed;
+  top: 70px;
+  width: 100%;
+  background-color: #ffcc00;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 10px;
+  z-index: 999;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  flex-wrap: nowrap;
+  overflow-x: auto;
+}
+
+/* nav list always visible and doesn't push hamburger */
+.nav-list {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 10px 0;
+  gap: 15px;
+  flex-shrink: 1;
+  overflow-x: auto;
+}
+
+.nav-list li a {
+  text-decoration: none;
+  color: #b22222;
+  font-weight: bold;
+  white-space: nowrap;
+  padding: 8px 12px;
+}
+
+/* hamburger icon stays fixed to right */
+.hamburger {
+  font-size: 36px;
+  cursor: pointer;
+  color: #b22222;
+  flex-shrink: 0;
+}
+
+/* Blog menu dropdown */
+.blog-menu {
+  display: none;
+  position: absolute;
+  top: 110px;
+  right: 20px;
+  background-color: #ffe680;
+  border: 1px solid #b22222;
+  border-radius: 5px;
+  padding: 10px;
+  z-index: 1001;
+}
+
+.blog-menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.blog-menu li {
+  margin: 10px 0;
+}
+
+.blog-menu a {
+  text-decoration: none;
+  color: #b22222;
+  font-weight: bold;
+}
+    
+    .media-section {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 10px 20px;
+      text-align: center;
+    }
+
+    .media-section iframe {
+      width: 100%;
+      max-width: 640px;
+      height: 360px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Ensure video scales down properly on smaller screens */
+    @media (max-width: 600px) {
+      .media-section iframe {
+        height: 250px; /* Adjust height for smaller screens */
+      }
+    }
+    @media (max-width: 400px) {
+      .media-section iframe {
+        height: 180px; /* Further adjust height for very small screens */
+      }
+    }
+
+
+    .reflection-container {
+      max-width: 800px;
+      margin: 30px auto;
+      padding: 30px;
+      background-color: #fff8f0;
+      border: 1px solid #e2d4c5;
+      border-radius: 8px;
+      font-family: 'Merriweather', serif;
+      line-height: 1.8;
+      color: #3b2f2f;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    }
+
+    .reflection-container h2 {
+      font-size: 28px;
+      margin-bottom: 20px;
+      text-align: center;
+      color: #993333;
+      font-weight: normal;
+    }
+
+    .reflection-container p {
+      margin-bottom: 16px;
+      text-align: justify;
+    }
+    @keyframes flame-glow {
+  0% {
+    box-shadow: 0 0 5px #ffcc00, 0 0 10px #ff9900, 0 0 15px #ff6600;
+  }
+  50% {
+    box-shadow: 0 0 8px #ffaa00, 0 0 14px #ff7700, 0 0 20px #ff3300;
+  }
+  100% {
+    box-shadow: 0 0 5px #ffcc00, 0 0 10px #ff9900, 0 0 15px #ff6600;
+  }
+}
+
+nav a.active,
+#blogMenu a.active {
+  color: #fff;
+  font-weight: bold;
+  background-color: #b22222; /* or #000 for dark nav */
+  border-radius: 6px;
+  padding: 5px 10px;
+  animation: flame-glow 1.5s infinite ease-in-out;
+  transition: background-color 0.3s;
+}
+
+    footer {
+      background: #b22222;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 40px;
+    }
+    @media (max-width: 400px) {
+  .nav-list a {
+    padding: 6px 8px;
+    font-size: 14px;
+  }
+
+  .hamburger {
+    font-size: 26px;
+  }
+}
+  </style>
+</head>
+<body>
+<header>
+  <div class="header-content">
+    <a href="https://facebook.com/stonecitygrill" target="_blank">
+      <img src="/pages/images/sglogo.PNG" alt="Stone Grill Logo" class="logo-circle" />
+    </a>
+    <h1>Stone Grill Restaurant</h1>
+  </div>
+</header>
+
+<nav class="main-nav">
+  
+  <div class="hamburger" onclick="toggleBlogMenu()">☰</div>
+  <ul class="nav-list">
+    <li><a href="sgr.html">Home</a></li>
+    <li><a href="menu.html">Menu</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  
+</nav>
+
+<div class="blog-menu" id="blogMenu">
+  <ul>
+    <li><a href="auth.html">The idea of God</a></li>
+    <li><a href="blog2.html">More Than Meets the Eye</a></li>
+    <li><a href="blog3.html">More Than Meets the Eye II</a></li>
+  </ul>
+</div>
+
+  <section class="media-section">
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/UWlV22lYpEk?si=buKmSTIP3W3ODKKY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  </section>
+ 
+  <main>
+    <div class="reflection-container">
+      <h2>More Than Meets the Eye</h2>
+      <p>Every day, we trust our eyes. We look at the world and assume that what we see is what exists — solid, absolute, and unchanging. But what if much of what we see isn’t actually “there”? What if some of the things we believe to be real are not parts of the world, but creations of the mind?</p>
+      <p>Take color, for instance. It feels real. We see blue skies, green leaves, golden sunsets. But scientifically, color isn’t a property of objects — it’s a result of how our brains interpret light waves. Without eyes to perceive them, colors don’t exist. They’re not out there in the world; they’re in here — inside our minds.</p>
+      <p>Time is another one. We live by it, measure our our lives by it, stress over it, celebrate it. Yet time, too, is a construct. A way we’ve chosen to measure change. It feels like a river flowing endlessly forward, but that’s just how we’ve been taught to perceive it.</p>
+      <p>So much of reality is shaped by how we experience it. Our minds do the heavy lifting — creating order from chaos, meaning from sensation. And sometimes, that meaning is deeply personal, not universal.</p>
+      <p>It means we need humility. What we think is “true” may simply be what we’re able to perceive. And what someone else sees — even if it’s completely different — might be just as valid from where they stand.</p>
+      <p>Sometimes, when we try to share our thoughts or beliefs, others can’t see it. Not because they’re blind or stubborn — but because their lens is different. And just like a prism, truth can look like many colors depending on the angle you see it from.</p>
+      <p>We can’t force understanding. We can only share gently, with patience and love. Because not everyone is ready for certain truths — and even the wisest, like Solomon, once carried wisdom that later became a weight. When we believe too much in our own light, we can forget that we are only reflections of something greater.</p>
+    </div>
+  </main>
+
+ 
+
+  <footer>
+    &copy; 2025 Stone Grill Restaurant
+  </footer>
+
+
+<script>
+  function toggleBlogMenu() {
+    const blogMenu = document.getElementById("blogMenu");
+    blogMenu.style.display = blogMenu.style.display === "block" ? "none" : "block";
+  }
+
+  document.addEventListener("click", function (event) {
+    const blogMenu = document.getElementById("blogMenu");
+    const hamburger = document.querySelector(".hamburger");
+    if (!blogMenu.contains(event.target) && !hamburger.contains(event.target)) {
+      blogMenu.style.display = "none";
+    }
+  });
+</script>
+    <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const currentPath = window.location.pathname.split("/").pop();
+
+    const navLinks = document.querySelectorAll("nav > a");
+    const blogLinks = document.querySelectorAll("#blogMenu a");
+    const allLinks = [...navLinks, ...blogLinks];
+
+    allLinks.forEach(link => {
+      const linkPath = link.getAttribute("href").split("/").pop();
+      if (linkPath === currentPath) {
+        link.classList.add("active");
+      }
+    });
+        });
+      </script>
+  <script>
+  function toggleBlogMenu() {
+    const blogMenu = document.getElementById("blogMenu");
+    blogMenu.style.display = blogMenu.style.display === "block" ? "none" : "block";
+  }
+
+  document.addEventListener("click", function (event) {
+    const blogMenu = document.getElementById("blogMenu");
+    const hamburger = document.querySelector(".hamburger");
+    if (!blogMenu.contains(event.target) && !hamburger.contains(event.target)) {
+      blogMenu.style.display = "none";
+    }
+  });
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const currentPath = window.location.pathname.split("/").pop();
+    const navLinks = document.querySelectorAll(".nav-left a");
+    const blogLinks = document.querySelectorAll("#blogMenu a");
+    const allLinks = [...navLinks, ...blogLinks];
+
+    allLinks.forEach(link => {
+      const linkPath = link.getAttribute("href").split("/").pop();
+      if (linkPath === currentPath) {
+        link.classList.add("active");
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
