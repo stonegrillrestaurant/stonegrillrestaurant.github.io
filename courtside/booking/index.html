@@ -37,10 +37,25 @@
     </section>
   </main>
 
+  <div id="joinModal" class="fixed inset-0 bg-black/70 hidden items-center justify-center p-4 z-50">
+    <div class="w-full max-w-md bg-slate-900 border border-slate-700 rounded-3xl p-6">
+      <h2 class="text-2xl font-bold">Join Open Play</h2>
+      <div id="joinDetails" class="mt-4 text-slate-300 space-y-1"></div>
+      <div class="mt-6 flex gap-3">
+        <button id="cancelJoinBtn" class="flex-1 rounded-xl border border-slate-600 px-4 py-3 font-semibold">Cancel</button>
+        <button id="confirmJoinBtn" class="flex-1 rounded-xl bg-teal-600 px-4 py-3 font-semibold">Continue</button>
+      </div>
+      <p class="mt-4 text-xs text-slate-500">This test creates a pending-payment registration. Payment confirmation will be connected next.</p>
+    </div>
+  </div>
+
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
 import { getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
-import { getFirestore, collection, query, where, onSnapshot } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+import {
+  getFirestore, collection, query, where, onSnapshot,
+  doc, getDoc, setDoc, serverTimestamp
+} from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyAz4ZsYAJkn8XzDrMb78oLc7szxXBxB-zo",
@@ -60,6 +75,12 @@ const $ = (id) => document.getElementById(id);
 const statusBox = $("statusBox");
 const schedule = $("schedule");
 const dateInput = $("dateInput");
+const joinModal = $("joinModal");
+const joinDetails = $("joinDetails");
+
+let selectedOpenPlay = null;
+let unsubscribeSchedule = null;
+let currentItems = [];
 
 function showStatus(type, title, detail) {
   statusBox.classList.remove("hidden");
@@ -68,7 +89,11 @@ function showStatus(type, title, detail) {
     <div class="mt-1 text-sm text-slate-300 break-words">${detail || ""}</div>
   `;
   statusBox.className = "mt-8 rounded-2xl border p-4 " +
-    (type === "error" ? "border-red-700 bg-red-950/50" : "border-slate-700 bg-slate-900");
+    (type === "error"
+      ? "border-red-700 bg-red-950/50"
+      : type === "success"
+      ? "border-emerald-700 bg-emerald-950/40"
+      : "border-slate-700 bg-slate-900");
 }
 
 function todayLocal() {
@@ -81,21 +106,26 @@ function todayLocal() {
 
 dateInput.value = todayLocal();
 
+async function ensureSignedIn() {
+  if (auth.currentUser) return auth.currentUser;
+  const result = await signInWithPopup(auth, provider);
+  return result.user;
+}
+
 $("googleBtn").addEventListener("click", async () => {
   try {
-    await signInWithPopup(auth, provider);
+    await ensureSignedIn();
   } catch (err) {
     showStatus("error", "Google sign-in error", `${err.code || "unknown"}: ${err.message}`);
   }
 });
 
 onAuthStateChanged(auth, (user) => {
-  $("googleBtn").textContent = user ? (user.displayName || "Signed in") : "Sign in with Google";
+  $("googleBtn").textContent = user ? (user.displayName || user.email || "Signed in") : "Sign in with Google";
 });
 
-let unsubscribeSchedule = null;
-
 function render(items) {
+  currentItems = items;
   const courts = [1,2,3,4,5,6];
 
   schedule.innerHTML = courts.map(courtId => {
@@ -108,7 +138,9 @@ function render(items) {
     if (courtItems.length) {
       body = courtItems.map(x => {
         if (x.type === "open_play") {
-          return `<button class="w-full text-left mt-2 bg-teal-700/40 border border-teal-600 rounded-xl p-3">
+          return `<button
+            class="join-open-play w-full text-left mt-2 bg-teal-700/40 hover:bg-teal-700/60 border border-teal-600 rounded-xl p-3"
+            data-session-id="${x.id}">
             <div class="font-semibold">Open Play · Tap to Join</div>
             <div class="text-sm text-slate-300">${x.startTime || "?"}–${x.endTime || "?"} · ₱${x.pricePerPlayer ?? "?"}/player${x.maxPlayers ? " · Max " + x.maxPlayers : ""}</div>
           </button>`;
@@ -131,6 +163,85 @@ function render(items) {
   }).join("");
 }
 
+schedule.addEventListener("click", (event) => {
+  const button = event.target.closest(".join-open-play");
+  if (!button) return;
+
+  selectedOpenPlay = currentItems.find(x => x.id === button.dataset.sessionId);
+  if (!selectedOpenPlay) return;
+
+  joinDetails.innerHTML = `
+    <div><strong>Date:</strong> ${selectedOpenPlay.date}</div>
+    <div><strong>Court:</strong> ${selectedOpenPlay.courtId}</div>
+    <div><strong>Time:</strong> ${selectedOpenPlay.startTime}–${selectedOpenPlay.endTime}</div>
+    <div><strong>Price:</strong> ₱${selectedOpenPlay.pricePerPlayer}/player</div>
+    <div><strong>Capacity:</strong> Maximum ${selectedOpenPlay.maxPlayers || "—"} players</div>
+  `;
+
+  joinModal.classList.remove("hidden");
+  joinModal.classList.add("flex");
+});
+
+$("cancelJoinBtn").addEventListener("click", () => {
+  joinModal.classList.add("hidden");
+  joinModal.classList.remove("flex");
+  selectedOpenPlay = null;
+});
+
+$("confirmJoinBtn").addEventListener("click", async () => {
+  if (!selectedOpenPlay) return;
+
+  const btn = $("confirmJoinBtn");
+  btn.disabled = true;
+  btn.textContent = "Please wait…";
+
+  try {
+    const user = await ensureSignedIn();
+    const registrationId = `${selectedOpenPlay.id}_${user.uid}`;
+    const registrationRef = doc(db, "openPlayRegistrations", registrationId);
+    const existing = await getDoc(registrationRef);
+
+    if (existing.exists()) {
+      joinModal.classList.add("hidden");
+      joinModal.classList.remove("flex");
+      showStatus("info", "Already registered", "This Google account already has a registration for this Open Play session.");
+      return;
+    }
+
+    await setDoc(registrationRef, {
+      sessionId: selectedOpenPlay.id,
+      customerUid: user.uid,
+      customerName: user.displayName || "",
+      customerEmail: user.email || "",
+      customerPhotoURL: user.photoURL || "",
+      date: selectedOpenPlay.date,
+      courtId: Number(selectedOpenPlay.courtId),
+      startTime: selectedOpenPlay.startTime,
+      endTime: selectedOpenPlay.endTime,
+      pricePerPlayer: Number(selectedOpenPlay.pricePerPlayer || 0),
+      paymentStatus: "pending",
+      status: "pending_payment",
+      checkedIn: false,
+      createdAt: serverTimestamp()
+    });
+
+    joinModal.classList.add("hidden");
+    joinModal.classList.remove("flex");
+
+    showStatus(
+      "success",
+      "Open Play registration created",
+      `${user.displayName || user.email} is registered for Court ${selectedOpenPlay.courtId}, ${selectedOpenPlay.date}, ${selectedOpenPlay.startTime}–${selectedOpenPlay.endTime}. Status: pending payment.`
+    );
+  } catch (err) {
+    showStatus("error", "Could not join Open Play", `${err.code || "unknown"}: ${err.message}`);
+  } finally {
+    btn.disabled = false;
+    btn.textContent = "Continue";
+    selectedOpenPlay = null;
+  }
+});
+
 function loadSchedule() {
   if (unsubscribeSchedule) unsubscribeSchedule();
 
@@ -148,7 +259,7 @@ function loadSchedule() {
     },
     (err) => {
       showStatus("error", "Public schedule read failed", `${err.code || "unknown"}: ${err.message}`);
-      schedule.innerHTML = '<div class="text-red-400 text-center py-10">Firestore rules are still blocking publicSchedule.</div>';
+      schedule.innerHTML = '<div class="text-red-400 text-center py-10">Firestore rules are blocking publicSchedule.</div>';
     }
   );
 }
